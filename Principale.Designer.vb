@@ -32,21 +32,21 @@ Partial Class Principale
         'boxNom
         '
         Me.boxNom.BackColor = System.Drawing.Color.Black
-        Me.boxNom.Font = New System.Drawing.Font("Shanghai", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.boxNom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.boxNom.ForeColor = System.Drawing.Color.White
         Me.boxNom.FormattingEnabled = True
-        Me.boxNom.Location = New System.Drawing.Point(314, 123)
+        Me.boxNom.Location = New System.Drawing.Point(459, 126)
         Me.boxNom.Name = "boxNom"
-        Me.boxNom.Size = New System.Drawing.Size(171, 27)
+        Me.boxNom.Size = New System.Drawing.Size(209, 28)
         Me.boxNom.TabIndex = 0
         '
         'btnLancer
         '
         Me.btnLancer.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnLancer.Font = New System.Drawing.Font("Shanghai", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLancer.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLancer.ForeColor = System.Drawing.Color.White
         Me.btnLancer.Image = CType(resources.GetObject("btnLancer.Image"), System.Drawing.Image)
-        Me.btnLancer.Location = New System.Drawing.Point(296, 260)
+        Me.btnLancer.Location = New System.Drawing.Point(113, 126)
         Me.btnLancer.Name = "btnLancer"
         Me.btnLancer.Size = New System.Drawing.Size(207, 33)
         Me.btnLancer.TabIndex = 1
@@ -57,9 +57,9 @@ Partial Class Principale
         '
         Me.btnQuitter.BackgroundImage = CType(resources.GetObject("btnQuitter.BackgroundImage"), System.Drawing.Image)
         Me.btnQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnQuitter.Font = New System.Drawing.Font("Shanghai", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQuitter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnQuitter.ForeColor = System.Drawing.Color.White
-        Me.btnQuitter.Location = New System.Drawing.Point(317, 299)
+        Me.btnQuitter.Location = New System.Drawing.Point(122, 300)
         Me.btnQuitter.Name = "btnQuitter"
         Me.btnQuitter.Size = New System.Drawing.Size(168, 46)
         Me.btnQuitter.TabIndex = 2
@@ -70,11 +70,11 @@ Partial Class Principale
         '
         Me.lblTitre.AutoSize = True
         Me.lblTitre.BackColor = System.Drawing.Color.Black
-        Me.lblTitre.Font = New System.Drawing.Font("Shanghai", 42.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitre.Font = New System.Drawing.Font("Microsoft Sans Serif", 42.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitre.ForeColor = System.Drawing.Color.White
         Me.lblTitre.Location = New System.Drawing.Point(284, 9)
         Me.lblTitre.Name = "lblTitre"
-        Me.lblTitre.Size = New System.Drawing.Size(219, 67)
+        Me.lblTitre.Size = New System.Drawing.Size(265, 64)
         Me.lblTitre.TabIndex = 5
         Me.lblTitre.Text = "SUDOKU"
         '

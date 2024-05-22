@@ -17,4 +17,5 @@
         Jeu.Close()
         Me.Close()
     End Sub
+
 End Class

@@ -5,6 +5,8 @@ Imports System.Security.Cryptography.X509Certificates
 Public Class Jeu
     Private Const TAILLE As Integer = 9
     Private Const TAILLE_BOX As Integer = 20
+    Dim compteurTemps As Integer = 0
+    Dim solution(,) As Integer
 
     Dim boxTab()() As TextBox
 
@@ -64,28 +66,46 @@ Public Class Jeu
 
     Private Sub VerifSaisie(sender As Object, e As KeyPressEventArgs)
         Dim txtbox As TextBox = CType(sender, TextBox)
-        Dim position As Point = CType(txtbox.Tag, Point)
+        Dim pos As Point = txtbox.Tag
         txtbox.ForeColor = Color.Black
+
+        If estSurLigne(pos.Y, e.KeyChar) Or estSurColonne(pos.X, e.KeyChar) Or estDansZone(pos.Y, pos.X, e.KeyChar) Then
+            txtbox.ForeColor = Color.Red
+        End If
+
+    End Sub
+
+    Private Function estSurLigne(ligne As Integer, elt As String) As Boolean
         For i As Integer = 0 To TAILLE - 1
-            If ((boxTab(i)(position.Y).Text = e.KeyChar Or boxTab(position.X)(i).Text = e.KeyChar) And txtbox.Text <> e.KeyChar.ToString()) Then
-                txtbox.ForeColor = Color.Red
+            If boxTab(i)(ligne).Text = elt Then
+                Return True
             End If
         Next
+        Return False
+    End Function
 
-        Dim debutLigne As Integer = (position.X \ 3) * 3
-        Dim debutColonne As Integer = (position.Y \ 3) * 3
+    Private Function estSurColonne(colonne As Integer, elt As String) As Boolean
+        For j As Integer = 0 To TAILLE - 1
+            If boxTab(colonne)(j).Text = elt Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
+    Private Function estDansZone(ligne As Integer, colonne As Integer, elt As String) As Boolean
+        Dim debutLigne As Integer = (ligne \ 3) * 3
+        Dim debutColonne As Integer = (colonne \ 3) * 3
 
-        For i As Integer = debutLigne To debutLigne + 2
-            For j As Integer = debutColonne To debutColonne + 2
-                If boxTab(i)(j).Text = e.KeyChar And txtbox.Text <> e.KeyChar.ToString() Then
-                    txtbox.ForeColor = Color.Red
-                    Exit Sub
+        For i As Integer = debutColonne To debutColonne + 2
+            For j As Integer = debutLigne To debutLigne + 2
+                If boxTab(i)(j).Text = elt Then
+                    Return True
                 End If
             Next
         Next
-    End Sub
-    Dim compteurTemps As Integer = 0
+        Return False
+    End Function
 
     Private Sub monTimer_Tick(sender As Object, e As EventArgs) Handles monTimer.Tick
         If compteurTemps > 0 Then
@@ -126,7 +146,8 @@ Public Class Jeu
         For ligne As Integer = 0 To TAILLE - 1
             For colonne As Integer = 0 To TAILLE - 1
                 If plateau(ligne, colonne) = 0 Then
-                    For num As Integer = 1 To TAILLE
+                    Dim nums As List(Of Integer) = MelangerNombres()
+                    For Each num As Integer In nums
                         If PeutPlacerNombre(plateau, ligne, colonne, num) Then
                             plateau(ligne, colonne) = num
                             If ResoudreSudoku(plateau) Then
@@ -140,6 +161,18 @@ Public Class Jeu
             Next
         Next
         Return True
+    End Function
+
+    Private Function MelangerNombres() As List(Of Integer)
+        Dim nums As New List(Of Integer)(Enumerable.Range(1, TAILLE))
+        Dim rand As New Random()
+        For i As Integer = 0 To nums.Count - 1
+            Dim j As Integer = rand.Next(i, nums.Count)
+            Dim temp As Integer = nums(i)
+            nums(i) = nums(j)
+            nums(j) = temp
+        Next
+        Return nums
     End Function
 
     Private Function GenererSolutionSudoku() As Integer(,)
@@ -176,6 +209,13 @@ Public Class Jeu
     End Sub
     Private Sub GenererSudoku()
         Dim plateauComplet As Integer(,) = GenererSolutionSudoku()
+        solution = New Integer(TAILLE, TAILLE) {}
+        For i As Integer = 0 To TAILLE - 1
+            For j As Integer = 0 To TAILLE - 1
+                solution(i, j) = plateauComplet(i, j)
+            Next
+        Next
+
         Dim CelluleASupprimer As Integer = 40
         SupprimerCellules(plateauComplet, CelluleASupprimer)
         RemplirCases(plateauComplet)
@@ -186,7 +226,12 @@ Public Class Jeu
     End Sub
 
     Private Sub btnSolution_Click(sender As Object, e As EventArgs) Handles btnSolution.Click
-        Dim plateauComplet As Integer(,) = GenererSolutionSudoku()
-        RemplirCases(plateauComplet)
+        For i As Integer = 0 To TAILLE - 1
+            For j As Integer = 0 To TAILLE - 1
+                If boxTab(i)(j).Text <> solution(i, j).ToString Then
+                    boxTab(i)(j).Text = solution(i, j).ToString
+                End If
+            Next
+        Next
     End Sub
 End Class
