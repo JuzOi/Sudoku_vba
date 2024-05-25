@@ -116,8 +116,15 @@ Public Class Jeu
         compteurTemps -= 1
 
         If estRenplis() And compteurTemps <> 0 Then
-            MsgBox("Bravo, tu a resolu le sudoku, " & vbCrLf & " ton temps vas etre afficher dans le classement , nous t'inviter a le regarder !!!!", vbYes)
+            Classement.ListBox1.Items.Add(lblNom.Text & compteurTemps)
+            MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps vas etre afficher dans le classement , nous t'inviter a le regarder !!!!", vbYes)
             monTimer.Stop()
+        End If
+
+        If compteurTemps = 0 Then
+            MsgBox("Dommage tu n'as pas réussi le sudoku", vbYes)
+            monTimer.Stop()
+            btnSolution.Select()
         End If
     End Sub
 

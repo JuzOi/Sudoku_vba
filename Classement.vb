@@ -3,4 +3,8 @@
         Me.Close()
         Principale.Show()
     End Sub
+
+    Private Sub Classement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ListBox1.Sorted = True
+    End Sub
 End Class
