@@ -27,6 +27,7 @@ Partial Class Principale
         Me.btnLancer = New System.Windows.Forms.Button()
         Me.btnQuitter = New System.Windows.Forms.Button()
         Me.lblTitre = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'boxNom
@@ -78,6 +79,19 @@ Partial Class Principale
         Me.lblTitre.TabIndex = 5
         Me.lblTitre.Text = "SUDOKU"
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(500, 300)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(168, 46)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Classement"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Principale
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -85,6 +99,7 @@ Partial Class Principale
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(789, 423)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTitre)
         Me.Controls.Add(Me.btnQuitter)
         Me.Controls.Add(Me.btnLancer)
@@ -100,4 +115,5 @@ Partial Class Principale
     Friend WithEvents btnLancer As Button
     Friend WithEvents btnQuitter As Button
     Friend WithEvents lblTitre As Label
+    Friend WithEvents Button1 As Button
 End Class

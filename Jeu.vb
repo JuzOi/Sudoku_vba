@@ -114,6 +114,11 @@ Public Class Jeu
             lblTimer.Text = String.Format("{0:D2}:{1:D2}", minutes, seconds)
         End If
         compteurTemps -= 1
+
+        If estRenplis() And compteurTemps <> 0 Then
+            MsgBox("Bravo, tu a resolu le sudoku, " & vbCrLf & " ton temps vas etre afficher dans le classement , nous t'inviter a le regarder !!!!", vbYes)
+            monTimer.Stop()
+        End If
     End Sub
 
     Private Sub ButtonRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
@@ -234,4 +239,18 @@ Public Class Jeu
             Next
         Next
     End Sub
+
+    Private Function estRenplis() As Boolean
+        For i As Integer = 0 To TAILLE - 1
+            For j As Integer = 0 To TAILLE - 1
+                If boxTab(i)(j).Text = solution(i, j).ToString() Then
+                    Return True
+                Else
+                    Return False
+                End If
+            Next
+        Next
+        Return False
+    End Function
+
 End Class
