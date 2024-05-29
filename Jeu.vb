@@ -3,8 +3,6 @@ Imports System.Runtime.Remoting.Channels
 Imports System.Security.Cryptography.X509Certificates
 
 Public Class Jeu
-    Private Const TAILLE As Integer = 9
-    Private Const TAILLE_ZONE As Integer = 3
     Private Const TAILLE_BOX As Integer = 20
     Private Const TEMPS_LIMITE As Integer = 420
     Dim compteurTemps As Integer = 0
@@ -14,13 +12,13 @@ Public Class Jeu
     Dim boxTab()() As TextBox
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        initGrille()
         Init()
     End Sub
     Public Sub Init()
+        DetruireGrille()
         initForm()
         initTimer()
-        btnRegenerer.PerformClick()
+        initGrille()
     End Sub
     Private Sub initTimer()
         compteurTemps = TEMPS_LIMITE
@@ -31,18 +29,18 @@ Public Class Jeu
     Private Sub initGrille()
         pnlGrille.Size = New Size(450, 450)
 
-        boxTab = New TextBox(TAILLE)() {}
-        For i As Integer = 0 To TAILLE - 1
-            boxTab(i) = New TextBox(TAILLE) {}
+        boxTab = New TextBox(taille_grille)() {}
+        For i As Integer = 0 To taille_grille - 1
+            boxTab(i) = New TextBox(taille_grille) {}
         Next
 
 
-        For i As Integer = 0 To TAILLE - 1
-            For j As Integer = 0 To TAILLE - 1
+        For i As Integer = 0 To taille_grille - 1
+            For j As Integer = 0 To taille_grille - 1
                 Dim tbx As New TextBox
 
-                Dim x As Integer = i * 5 + (i \ TAILLE_ZONE) * 7
-                Dim y As Integer = j * 2 + (j \ TAILLE_ZONE) * 7
+                Dim x As Integer = i * 5 + (i \ taille_zone) * 7
+                Dim y As Integer = j * 2 + (j \ taille_zone) * 7
 
                 With tbx
                     .Size = New Size(TAILLE_BOX, 1)
@@ -85,17 +83,17 @@ Public Class Jeu
     End Sub
 
     Private Function EstNombreValide(ligne As Integer, colonne As Integer, elt As String) As Boolean
-        For x As Integer = 0 To TAILLE - 1
+        For x As Integer = 0 To taille_grille - 1
             If boxTab(ligne)(x).Text = elt OrElse boxTab(x)(colonne).Text = elt Then
                 Return False
             End If
         Next
 
-        Dim debutLigne As Integer = (ligne \ TAILLE_ZONE) * TAILLE_ZONE
-        Dim debutColonne As Integer = (colonne \ TAILLE_ZONE) * TAILLE_ZONE
+        Dim debutLigne As Integer = (ligne \ taille_zone) * taille_zone
+        Dim debutColonne As Integer = (colonne \ taille_zone) * taille_zone
 
-        For i As Integer = debutLigne To debutLigne + TAILLE_ZONE - 1
-            For j As Integer = debutColonne To debutColonne + TAILLE_ZONE - 1
+        For i As Integer = debutLigne To debutLigne + taille_zone - 1
+            For j As Integer = debutColonne To debutColonne + taille_zone - 1
                 If boxTab(i)(j).Text = elt Then
                     Return False
                 End If
@@ -107,19 +105,20 @@ Public Class Jeu
     Private Sub monTimer_Tick(sender As Object, e As EventArgs) Handles monTimer.Tick
         If compteurTemps > 0 Then
             Dim minutes As Integer = compteurTemps \ 60
-            Dim seconds As Integer = compteurTemps Mod 60
-            lblTimer.Text = String.Format("{0:D2}:{1:D2}", minutes, seconds)
+            Dim seconde As Integer = compteurTemps Mod 60
+            lblTimer.Text = String.Format("{0:D2}:{1:D2}", minutes, seconde)
         End If
         compteurTemps -= 1
 
         If estRemplis() And compteurTemps <> 0 Then
             monTimer.Stop()
             ActualiserScore(lblNom.Text, compteurTemps)
-            MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!!", vbYes)
+            MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
         End If
 
         If compteurTemps = 0 Then
             monTimer.Stop()
+            AjouterTemps(lblNom.Text, compteurTemps)
             MsgBox("Dommage tu n'as pas résolu le sudoku", vbYes)
             btnSolution.Select()
         End If
@@ -145,19 +144,19 @@ Public Class Jeu
         End If
     End Sub
 
-    Private Function PeutPlacerNombre(plateau(,) As Integer, ligne As Integer, colonne As Integer, num As Integer) As Boolean
-        For x As Integer = 0 To TAILLE - 1
-            If plateau(ligne, x) = num Or plateau(x, colonne) = num Then
+    Private Function PeutPlacerNombre(ligne As Integer, colonne As Integer, num As Integer) As Boolean
+        For x As Integer = 0 To taille_grille - 1
+            If solution(ligne, x) = num Or solution(x, colonne) = num Then
                 Return False
             End If
         Next
 
-        Dim debutLigne As Integer = ligne - ligne Mod TAILLE_ZONE
-        Dim debutColonne As Integer = colonne - colonne Mod TAILLE_ZONE
+        Dim debutLigne As Integer = ligne - ligne Mod taille_zone
+        Dim debutColonne As Integer = colonne - colonne Mod taille_zone
 
-        For i As Integer = 0 To TAILLE_ZONE - 1
-            For j As Integer = 0 To TAILLE_ZONE - 1
-                If plateau(i + debutLigne, j + debutColonne) = num Then
+        For i As Integer = 0 To taille_zone - 1
+            For j As Integer = 0 To taille_zone - 1
+                If solution(i + debutLigne, j + debutColonne) = num Then
                     Return False
                 End If
             Next
@@ -167,12 +166,12 @@ Public Class Jeu
     End Function
 
     Private Function GenererSolution() As Boolean
-        For ligne As Integer = 0 To TAILLE - 1
-            For colonne As Integer = 0 To TAILLE - 1
+        For ligne As Integer = 0 To taille_grille - 1
+            For colonne As Integer = 0 To taille_grille - 1
                 If solution(ligne, colonne) = 0 Then
                     Dim nums As List(Of Integer) = MelangerNombres()
                     For Each num As Integer In nums
-                        If PeutPlacerNombre(solution, ligne, colonne, num) Then
+                        If PeutPlacerNombre(ligne, colonne, num) Then
                             solution(ligne, colonne) = num
                             If GenererSolution() Then
                                 Return True
@@ -188,7 +187,7 @@ Public Class Jeu
     End Function
 
     Private Function MelangerNombres() As List(Of Integer)
-        Dim nums As New List(Of Integer)(Enumerable.Range(1, TAILLE))
+        Dim nums As New List(Of Integer)(Enumerable.Range(1, taille_grille))
         Dim rand As New Random()
         For i As Integer = 0 To nums.Count - 1
             Dim j As Integer = rand.Next(i, nums.Count)
@@ -200,13 +199,13 @@ Public Class Jeu
     End Function
 
 
-    Private Sub RemplirGrille(celluleASupprimer As Integer)
+    Private Sub RemplirGrille()
         Dim rnd As New Random()
         Dim compteur As Integer = celluleASupprimer
 
         While compteur > 0
-            Dim ligne As Integer = rnd.Next(TAILLE)
-            Dim colonne As Integer = rnd.Next(TAILLE)
+            Dim ligne As Integer = rnd.Next(taille_grille)
+            Dim colonne As Integer = rnd.Next(taille_grille)
 
             If boxTab(ligne)(colonne).Text = "" Then
                 boxTab(ligne)(colonne).Text = solution(ligne, colonne)
@@ -217,15 +216,14 @@ Public Class Jeu
     End Sub
 
     Private Sub GenererSudoku()
-        ReDim solution(TAILLE - 1, TAILLE - 1)
+        ReDim solution(taille_grille - 1, taille_grille - 1)
         GenererSolution()
-        Dim CelluleASupprimer As Integer = 40
-        RemplirGrille(CelluleASupprimer)
+        RemplirGrille()
     End Sub
 
     Private Sub ClearGrille()
-        For i As Integer = 0 To TAILLE - 1
-            For j As Integer = 0 To TAILLE - 1
+        For i As Integer = 0 To taille_grille - 1
+            For j As Integer = 0 To taille_grille - 1
                 boxTab(i)(j).Text = ""
                 boxTab(i)(j).Enabled = True
             Next
@@ -238,8 +236,8 @@ Public Class Jeu
     End Sub
 
     Private Sub MontrerSolution()
-        For i As Integer = 0 To TAILLE - 1
-            For j As Integer = 0 To TAILLE - 1
+        For i As Integer = 0 To taille_grille - 1
+            For j As Integer = 0 To taille_grille - 1
                 If boxTab(i)(j).Text <> solution(i, j).ToString Then
                     boxTab(i)(j).Text = solution(i, j).ToString
                 End If
@@ -251,8 +249,8 @@ Public Class Jeu
     End Sub
 
     Private Function estRemplis() As Boolean
-        For i As Integer = 0 To TAILLE - 1
-            For j As Integer = 0 To TAILLE - 1
+        For i As Integer = 0 To taille_grille - 1
+            For j As Integer = 0 To taille_grille - 1
                 If boxTab(i)(j).Text = "" Then
                     Return False
                 End If
@@ -260,5 +258,24 @@ Public Class Jeu
         Next
         Return True
     End Function
+
+    Private Sub DetruireGrille()
+        pnlGrille.Controls.Clear()
+
+        If boxTab IsNot Nothing Then
+            For i As Integer = 0 To boxTab.Length - 1
+                If boxTab(i) IsNot Nothing Then
+                    For j As Integer = 0 To boxTab(i).Length - 1
+                        If boxTab(i)(j) IsNot Nothing Then
+                            boxTab(i)(j).Dispose()
+                            boxTab(i)(j) = Nothing
+                        End If
+                    Next
+                    boxTab(i) = Nothing
+                End If
+            Next
+            boxTab = Nothing
+        End If
+    End Sub
 
 End Class

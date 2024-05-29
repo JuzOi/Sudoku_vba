@@ -9,9 +9,22 @@
     Public joueurs() As Joueur
     Public nbJoueurs As Integer
     Const PAS_EXT As Integer = 2
+
+    Public taille_zone As Integer
+    Public taille_grille As Integer
+    Public celluleASupprimer As Integer
+    Public difficulte As Collection
+
     Sub Main()
         nbJoueurs = 0
         ReDim joueurs(0)
+
+        difficulte = New Collection From {
+            {50, "Facile"},
+            {35, "Moyen"},
+            {20, "Difficile"}
+        }
+
         Application.Run(Principale)
     End Sub
 
@@ -28,20 +41,6 @@
             If joueurs(i).nom.Equals(nom) And newScore > joueurs(i).meilleurScore Then
                 joueurs(i).meilleurScore = newScore
             End If
-        Next
-    End Sub
-
-    Public Sub TrierParScore()
-        For i As Integer = 1 To nbJoueurs - 1
-            Dim joueurTemp As Joueur = joueurs(i)
-            Dim j As Integer = i - 1
-
-            While j >= 0 AndAlso joueurs(j).meilleurScore < joueurTemp.meilleurScore
-                joueurs(j + 1) = joueurs(j)
-                j -= 1
-            End While
-
-            joueurs(j + 1) = joueurTemp
         Next
     End Sub
 

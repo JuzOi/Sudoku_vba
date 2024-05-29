@@ -11,11 +11,11 @@
     End Sub
 
     Public Sub AfficherClassement()
-        TrierParScore()
         For i As Integer = 0 To nbJoueurs - 1
             With joueurs(i)
                 lstClassement.Items.Add(.nom & " " & .meilleurScore)
             End With
         Next
+        lstClassement.Sorted = True
     End Sub
 End Class
