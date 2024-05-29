@@ -6,8 +6,10 @@ Public Class Jeu
     Private Const TAILLE As Integer = 9
     Private Const TAILLE_ZONE As Integer = 3
     Private Const TAILLE_BOX As Integer = 20
+    Private Const TEMPS_LIMITE As Integer = 420
     Dim compteurTemps As Integer = 0
     Dim solution(,) As Integer
+    Dim abandon As Boolean
 
     Dim boxTab()() As TextBox
 
@@ -21,9 +23,9 @@ Public Class Jeu
         btnRegenerer.PerformClick()
     End Sub
     Private Sub initTimer()
+        compteurTemps = TEMPS_LIMITE
         monTimer.Interval = 1000
         monTimer.Start()
-        compteurTemps = 420
     End Sub
 
     Private Sub initGrille()
@@ -60,6 +62,7 @@ Public Class Jeu
     End Sub
 
     Private Sub initForm()
+        abandon = False
         lblNom.Text = Principale.boxNom.Text
     End Sub
 
@@ -123,8 +126,23 @@ Public Class Jeu
     End Sub
 
     Private Sub ButtonRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
-        Me.Hide()
-        Principale.Show()
+        If abandon Then
+            Me.Hide()
+            Principale.Show()
+            Exit Sub
+        End If
+
+        If MsgBox("Souhaitez-vous vraiment abandonner ?", vbYesNo) = vbYes Then
+            abandon = True
+            AjouterTemps(lblNom.Text, TEMPS_LIMITE - compteurTemps)
+            monTimer.Stop()
+            If MsgBox("Voulez-vous voir la solution ?", vbYesNo) = vbYes Then
+                MontrerSolution()
+            Else
+                Me.Hide()
+                Principale.Show()
+            End If
+        End If
     End Sub
 
     Private Function PeutPlacerNombre(plateau(,) As Integer, ligne As Integer, colonne As Integer, num As Integer) As Boolean
@@ -219,7 +237,7 @@ Public Class Jeu
         GenererSudoku()
     End Sub
 
-    Private Sub btnSolution_Click(sender As Object, e As EventArgs) Handles btnSolution.Click
+    Private Sub MontrerSolution()
         For i As Integer = 0 To TAILLE - 1
             For j As Integer = 0 To TAILLE - 1
                 If boxTab(i)(j).Text <> solution(i, j).ToString Then
@@ -228,11 +246,14 @@ Public Class Jeu
             Next
         Next
     End Sub
+    Private Sub btnSolution_Click(sender As Object, e As EventArgs) Handles btnSolution.Click
+        MontrerSolution()
+    End Sub
 
     Private Function estRemplis() As Boolean
         For i As Integer = 0 To TAILLE - 1
             For j As Integer = 0 To TAILLE - 1
-                If boxTab(i)(j).Text <> solution(i, j).ToString() Then
+                If boxTab(i)(j).Text = "" Then
                     Return False
                 End If
             Next

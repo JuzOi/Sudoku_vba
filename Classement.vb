@@ -14,7 +14,7 @@
         TrierParScore()
         For i As Integer = 0 To nbJoueurs - 1
             With joueurs(i)
-                lstClassement.Items.Add(.nom & " " & .score)
+                lstClassement.Items.Add(.nom & " " & .meilleurScore)
             End With
         Next
     End Sub

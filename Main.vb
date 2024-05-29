@@ -1,7 +1,9 @@
 ﻿Module Main
     Structure Joueur
         Dim nom As String
-        Dim score As Double
+        Dim meilleurScore As Double
+        Dim nbPartieJoue As Integer
+        Dim cumul As Integer
     End Structure
 
     Public joueurs() As Joueur
@@ -23,8 +25,8 @@
 
     Public Sub ActualiserScore(nom As String, newScore As Integer)
         For i As Integer = 0 To nbJoueurs - 1
-            If joueurs(i).nom.Equals(nom) And newScore > joueurs(i).score Then
-                joueurs(i).score = newScore
+            If joueurs(i).nom.Equals(nom) And newScore > joueurs(i).meilleurScore Then
+                joueurs(i).meilleurScore = newScore
             End If
         Next
     End Sub
@@ -34,12 +36,20 @@
             Dim joueurTemp As Joueur = joueurs(i)
             Dim j As Integer = i - 1
 
-            While j >= 0 AndAlso joueurs(j).score < joueurTemp.score
+            While j >= 0 AndAlso joueurs(j).meilleurScore < joueurTemp.meilleurScore
                 joueurs(j + 1) = joueurs(j)
                 j -= 1
             End While
 
             joueurs(j + 1) = joueurTemp
+        Next
+    End Sub
+
+    Public Sub AjouterTemps(nom As String, temps As Integer)
+        For i As Integer = 0 To nbJoueurs - 1
+            If joueurs(i).nom.Equals(nom) And temps > joueurs(i).meilleurScore Then
+                joueurs(i).cumul = temps
+            End If
         Next
     End Sub
 End Module

@@ -28,6 +28,9 @@ Partial Class Principale
         Me.btnQuitter = New System.Windows.Forms.Button()
         Me.lblTitre = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnGrille4 = New System.Windows.Forms.Button()
+        Me.btnGrille3 = New System.Windows.Forms.Button()
+        Me.btnRegle = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'boxNom
@@ -36,7 +39,7 @@ Partial Class Principale
         Me.boxNom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.boxNom.ForeColor = System.Drawing.Color.White
         Me.boxNom.FormattingEnabled = True
-        Me.boxNom.Location = New System.Drawing.Point(459, 126)
+        Me.boxNom.Location = New System.Drawing.Point(170, 160)
         Me.boxNom.Name = "boxNom"
         Me.boxNom.Size = New System.Drawing.Size(209, 28)
         Me.boxNom.TabIndex = 0
@@ -47,7 +50,7 @@ Partial Class Principale
         Me.btnLancer.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLancer.ForeColor = System.Drawing.Color.White
         Me.btnLancer.Image = CType(resources.GetObject("btnLancer.Image"), System.Drawing.Image)
-        Me.btnLancer.Location = New System.Drawing.Point(113, 126)
+        Me.btnLancer.Location = New System.Drawing.Point(170, 226)
         Me.btnLancer.Name = "btnLancer"
         Me.btnLancer.Size = New System.Drawing.Size(207, 33)
         Me.btnLancer.TabIndex = 1
@@ -60,7 +63,7 @@ Partial Class Principale
         Me.btnQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnQuitter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnQuitter.ForeColor = System.Drawing.Color.White
-        Me.btnQuitter.Location = New System.Drawing.Point(122, 300)
+        Me.btnQuitter.Location = New System.Drawing.Point(187, 366)
         Me.btnQuitter.Name = "btnQuitter"
         Me.btnQuitter.Size = New System.Drawing.Size(168, 46)
         Me.btnQuitter.TabIndex = 2
@@ -85,12 +88,46 @@ Partial Class Principale
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(500, 300)
+        Me.Button1.Location = New System.Drawing.Point(187, 314)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(168, 46)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Classement"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnGrille4
+        '
+        Me.btnGrille4.BackgroundImage = CType(resources.GetObject("btnGrille4.BackgroundImage"), System.Drawing.Image)
+        Me.btnGrille4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGrille4.Location = New System.Drawing.Point(566, 146)
+        Me.btnGrille4.Name = "btnGrille4"
+        Me.btnGrille4.Size = New System.Drawing.Size(73, 57)
+        Me.btnGrille4.TabIndex = 7
+        Me.btnGrille4.UseVisualStyleBackColor = True
+        '
+        'btnGrille3
+        '
+        Me.btnGrille3.BackgroundImage = CType(resources.GetObject("btnGrille3.BackgroundImage"), System.Drawing.Image)
+        Me.btnGrille3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGrille3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.btnGrille3.Location = New System.Drawing.Point(669, 146)
+        Me.btnGrille3.Name = "btnGrille3"
+        Me.btnGrille3.Size = New System.Drawing.Size(68, 57)
+        Me.btnGrille3.TabIndex = 8
+        Me.btnGrille3.UseVisualStyleBackColor = True
+        '
+        'btnRegle
+        '
+        Me.btnRegle.BackgroundImage = CType(resources.GetObject("btnRegle.BackgroundImage"), System.Drawing.Image)
+        Me.btnRegle.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRegle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegle.ForeColor = System.Drawing.Color.White
+        Me.btnRegle.Location = New System.Drawing.Point(187, 265)
+        Me.btnRegle.Name = "btnRegle"
+        Me.btnRegle.Size = New System.Drawing.Size(168, 46)
+        Me.btnRegle.TabIndex = 9
+        Me.btnRegle.Text = "Règle"
+        Me.btnRegle.UseVisualStyleBackColor = True
         '
         'Principale
         '
@@ -98,7 +135,10 @@ Partial Class Principale
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(789, 423)
+        Me.ClientSize = New System.Drawing.Size(901, 511)
+        Me.Controls.Add(Me.btnRegle)
+        Me.Controls.Add(Me.btnGrille3)
+        Me.Controls.Add(Me.btnGrille4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTitre)
         Me.Controls.Add(Me.btnQuitter)
@@ -116,4 +156,7 @@ Partial Class Principale
     Friend WithEvents btnQuitter As Button
     Friend WithEvents lblTitre As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnGrille4 As Button
+    Friend WithEvents btnGrille3 As Button
+    Friend WithEvents btnRegle As Button
 End Class
