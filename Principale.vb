@@ -1,9 +1,20 @@
 ﻿Public Class Principale
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
         If boxNom.Text.Trim <> "" Then
-            boxNom.Items.Add(boxNom.Text)
+            If Not boxNom.Items.Contains(boxNom.Text) Then
+                boxNom.Items.Add(boxNom.Text)
+
+                Dim newJoueur As Joueur
+                With newJoueur
+                    .nom = boxNom.Text
+                    .score = 0
+                End With
+                Ajout(newJoueur)
+            End If
+
             Me.Hide()
             Jeu.Show()
+            Jeu.Init()
         Else
             MsgBox("Veuillez saisir un nom")
         End If
@@ -21,5 +32,7 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
         Classement.Show()
+        Classement.AfficherClassement()
     End Sub
+
 End Class

@@ -22,40 +22,40 @@ Partial Class Classement
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.btnRetour = New System.Windows.Forms.Button()
+        Me.lstClassement = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnRetour
         '
-        Me.Button1.Location = New System.Drawing.Point(342, 374)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(152, 43)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnRetour.Location = New System.Drawing.Point(342, 374)
+        Me.btnRetour.Name = "btnRetour"
+        Me.btnRetour.Size = New System.Drawing.Size(152, 43)
+        Me.btnRetour.TabIndex = 0
+        Me.btnRetour.Text = "retour"
+        Me.btnRetour.UseVisualStyleBackColor = True
         '
-        'ListBox1
+        'lstClassement
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 36)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(282, 381)
-        Me.ListBox1.TabIndex = 1
+        Me.lstClassement.FormattingEnabled = True
+        Me.lstClassement.Location = New System.Drawing.Point(12, 36)
+        Me.lstClassement.Name = "lstClassement"
+        Me.lstClassement.Size = New System.Drawing.Size(282, 381)
+        Me.lstClassement.TabIndex = 1
         '
         'Classement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(512, 450)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.lstClassement)
+        Me.Controls.Add(Me.btnRetour)
         Me.Name = "Classement"
         Me.Text = "Classement"
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents btnRetour As Button
+    Friend WithEvents lstClassement As ListBox
 End Class
