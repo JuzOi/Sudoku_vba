@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Principale
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Principale
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principale))
         Me.boxNom = New System.Windows.Forms.ComboBox()
@@ -31,6 +31,9 @@ Partial Class Principale
         Me.btnGrille4 = New System.Windows.Forms.Button()
         Me.btnGrille3 = New System.Windows.Forms.Button()
         Me.btnRegle = New System.Windows.Forms.Button()
+        Me.btnFacile = New System.Windows.Forms.RadioButton()
+        Me.btnMoyen = New System.Windows.Forms.RadioButton()
+        Me.btnDifficile = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'boxNom
@@ -97,24 +100,26 @@ Partial Class Principale
         '
         'btnGrille4
         '
+        Me.btnGrille4.BackColor = System.Drawing.Color.Transparent
         Me.btnGrille4.BackgroundImage = CType(resources.GetObject("btnGrille4.BackgroundImage"), System.Drawing.Image)
         Me.btnGrille4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnGrille4.Location = New System.Drawing.Point(566, 146)
+        Me.btnGrille4.Location = New System.Drawing.Point(662, 146)
         Me.btnGrille4.Name = "btnGrille4"
         Me.btnGrille4.Size = New System.Drawing.Size(73, 57)
         Me.btnGrille4.TabIndex = 7
-        Me.btnGrille4.UseVisualStyleBackColor = True
+        Me.btnGrille4.UseVisualStyleBackColor = False
         '
         'btnGrille3
         '
+        Me.btnGrille3.BackColor = System.Drawing.Color.Transparent
         Me.btnGrille3.BackgroundImage = CType(resources.GetObject("btnGrille3.BackgroundImage"), System.Drawing.Image)
         Me.btnGrille3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnGrille3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btnGrille3.Location = New System.Drawing.Point(669, 146)
+        Me.btnGrille3.Location = New System.Drawing.Point(568, 146)
         Me.btnGrille3.Name = "btnGrille3"
         Me.btnGrille3.Size = New System.Drawing.Size(68, 57)
         Me.btnGrille3.TabIndex = 8
-        Me.btnGrille3.UseVisualStyleBackColor = True
+        Me.btnGrille3.UseVisualStyleBackColor = False
         '
         'btnRegle
         '
@@ -129,6 +134,48 @@ Partial Class Principale
         Me.btnRegle.Text = "Règle"
         Me.btnRegle.UseVisualStyleBackColor = True
         '
+        'btnFacile
+        '
+        Me.btnFacile.AutoSize = True
+        Me.btnFacile.BackColor = System.Drawing.Color.Transparent
+        Me.btnFacile.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFacile.ForeColor = System.Drawing.Color.White
+        Me.btnFacile.Location = New System.Drawing.Point(568, 251)
+        Me.btnFacile.Name = "btnFacile"
+        Me.btnFacile.Size = New System.Drawing.Size(79, 28)
+        Me.btnFacile.TabIndex = 10
+        Me.btnFacile.TabStop = True
+        Me.btnFacile.Text = "Facile"
+        Me.btnFacile.UseVisualStyleBackColor = False
+        '
+        'btnMoyen
+        '
+        Me.btnMoyen.AutoSize = True
+        Me.btnMoyen.BackColor = System.Drawing.Color.Transparent
+        Me.btnMoyen.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMoyen.ForeColor = System.Drawing.Color.White
+        Me.btnMoyen.Location = New System.Drawing.Point(568, 283)
+        Me.btnMoyen.Name = "btnMoyen"
+        Me.btnMoyen.Size = New System.Drawing.Size(86, 28)
+        Me.btnMoyen.TabIndex = 11
+        Me.btnMoyen.TabStop = True
+        Me.btnMoyen.Text = "Moyen"
+        Me.btnMoyen.UseVisualStyleBackColor = False
+        '
+        'btnDifficile
+        '
+        Me.btnDifficile.AutoSize = True
+        Me.btnDifficile.BackColor = System.Drawing.Color.Transparent
+        Me.btnDifficile.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDifficile.ForeColor = System.Drawing.Color.White
+        Me.btnDifficile.Location = New System.Drawing.Point(568, 314)
+        Me.btnDifficile.Name = "btnDifficile"
+        Me.btnDifficile.Size = New System.Drawing.Size(86, 28)
+        Me.btnDifficile.TabIndex = 12
+        Me.btnDifficile.TabStop = True
+        Me.btnDifficile.Text = "Difficile"
+        Me.btnDifficile.UseVisualStyleBackColor = False
+        '
         'Principale
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -136,9 +183,12 @@ Partial Class Principale
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(901, 511)
-        Me.Controls.Add(Me.btnRegle)
-        Me.Controls.Add(Me.btnGrille3)
+        Me.Controls.Add(Me.btnDifficile)
+        Me.Controls.Add(Me.btnMoyen)
+        Me.Controls.Add(Me.btnFacile)
         Me.Controls.Add(Me.btnGrille4)
+        Me.Controls.Add(Me.btnGrille3)
+        Me.Controls.Add(Me.btnRegle)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTitre)
         Me.Controls.Add(Me.btnQuitter)
@@ -159,4 +209,7 @@ Partial Class Principale
     Friend WithEvents btnGrille4 As Button
     Friend WithEvents btnGrille3 As Button
     Friend WithEvents btnRegle As Button
+    Friend WithEvents btnFacile As RadioButton
+    Friend WithEvents btnMoyen As RadioButton
+    Friend WithEvents btnDifficile As RadioButton
 End Class

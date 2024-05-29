@@ -1,4 +1,11 @@
 ﻿Public Class Principale
+    Private Sub Principale_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Init()
+    End Sub
+    Public Sub Init()
+        btnGrille3.PerformClick()
+        btnFacile.Checked = True
+    End Sub
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
         If boxNom.Text.Trim <> "" Then
             If Not boxNom.Items.Contains(boxNom.Text) Then
@@ -36,13 +43,18 @@
         Classement.Show()
         Classement.AfficherClassement()
     End Sub
-
-    Private Sub btnGrille4_Click(sender As Object, e As EventArgs) Handles btnGrille4.Click
-        btnGrille3.Enabled = False
-    End Sub
-
     Private Sub btnRegle_Click(sender As Object, e As EventArgs) Handles btnRegle.Click
         MsgBox("Notre sudoku marche ainsi : " & vbCrLf & vbCrLf & "-Rentrez un pseudo " & vbCrLf & vbCrLf & "-Choisir un niveau (la taille de la grille et du nombre de cases cachées) " & vbCrLf & "Puis, quand la partie aura commencé, vous aurez 7 minutes pour résoudre le sudoku." & vbCrLf & vbCrLf & " Vous pouvez bien sûr abandonner en cliquant sur la flèche, ce qui vous permettra d'afficher la solution." & vbCrLf & vbCrLf & " Si vous arrivez à résoudre le sudoku dans le temps imparti, votre score sera affiché dans le tableau de classement. Pour le voir, il vous suffira de cliquer sur le bouton classement.", vbYes, "Régle")
+    End Sub
+
+    Private Sub btnGrille4_Click(sender As Object, e As EventArgs) Handles btnGrille4.Click
+        btnGrille4.BackColor = Color.Gray
+        btnGrille3.BackColor = Color.White
+    End Sub
+
+    Private Sub btnGrille3_Click(sender As Object, e As EventArgs) Handles btnGrille3.Click
+        btnGrille3.BackColor = Color.Gray
+        btnGrille4.BackColor = Color.White
     End Sub
 
 End Class

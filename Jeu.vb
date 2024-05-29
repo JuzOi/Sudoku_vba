@@ -134,7 +134,7 @@ Public Class Jeu
 
         If MsgBox("Souhaitez-vous vraiment abandonner ?", vbYesNo) = vbYes Then
             abandon = True
-            AjouterTemps(lblNom.Text, TEMPS_LIMITE - compteurTemps)
+            AjouterTemps(lblNom.Text, compteurTemps)
             monTimer.Stop()
             If MsgBox("Voulez-vous voir la solution ?", vbYesNo) = vbYes Then
                 MontrerSolution()
