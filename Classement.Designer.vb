@@ -27,6 +27,8 @@ Partial Class Classement
         Me.btnRetour = New System.Windows.Forms.Button()
         Me.btnTrieNom = New System.Windows.Forms.Button()
         Me.btnTrieScore = New System.Windows.Forms.Button()
+        Me.cmbBoxnom = New System.Windows.Forms.ComboBox()
+        Me.btnInfoJoueur = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstNom
@@ -74,11 +76,30 @@ Partial Class Classement
         Me.btnTrieScore.Text = "Trier"
         Me.btnTrieScore.UseVisualStyleBackColor = True
         '
+        'cmbBoxnom
+        '
+        Me.cmbBoxnom.FormattingEnabled = True
+        Me.cmbBoxnom.Location = New System.Drawing.Point(170, 434)
+        Me.cmbBoxnom.Name = "cmbBoxnom"
+        Me.cmbBoxnom.Size = New System.Drawing.Size(121, 21)
+        Me.cmbBoxnom.TabIndex = 9
+        '
+        'btnInfoJoueur
+        '
+        Me.btnInfoJoueur.Location = New System.Drawing.Point(409, 445)
+        Me.btnInfoJoueur.Name = "btnInfoJoueur"
+        Me.btnInfoJoueur.Size = New System.Drawing.Size(103, 33)
+        Me.btnInfoJoueur.TabIndex = 10
+        Me.btnInfoJoueur.Text = "InfoJoueur"
+        Me.btnInfoJoueur.UseVisualStyleBackColor = True
+        '
         'Classement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(525, 501)
+        Me.Controls.Add(Me.btnInfoJoueur)
+        Me.Controls.Add(Me.cmbBoxnom)
         Me.Controls.Add(Me.btnTrieScore)
         Me.Controls.Add(Me.btnTrieNom)
         Me.Controls.Add(Me.btnRetour)
@@ -94,4 +115,6 @@ Partial Class Classement
     Friend WithEvents btnRetour As Button
     Friend WithEvents btnTrieNom As Button
     Friend WithEvents btnTrieScore As Button
+    Friend WithEvents cmbBoxnom As ComboBox
+    Friend WithEvents btnInfoJoueur As Button
 End Class

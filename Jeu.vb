@@ -113,6 +113,7 @@ Public Class Jeu
             monTimer.Stop()
             ActualiserScore(lblNom.Text, compteurTemps)
             MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
+            abandon = True
         End If
 
         If compteurTemps = 0 Then

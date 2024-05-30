@@ -27,6 +27,7 @@
     Private Sub Synchroniser(index As Integer)
         lstNom.SelectedIndex = index
         lstScore.SelectedIndex = index
+        cmbBoxnom.Text = lstNom.Text
     End Sub
 
     Private Sub lstNom_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstNom.SelectedIndexChanged
@@ -40,5 +41,21 @@
     Private Sub btnRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
         Me.Hide()
         Principale.Show()
+    End Sub
+
+    Private Sub cmbom_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBoxnom.SelectedIndexChanged
+        If cmbBoxnom.Text = lstNom.Text Then
+            lstNom.Select()
+        End If
+    End Sub
+
+    Private Sub btnInfoJoueur_Click(sender As Object, e As EventArgs) Handles btnInfoJoueur.Click
+        For i As Integer = 0 To nbJoueurs - 1
+            With joueurs(i)
+                If cmbBoxnom.Text = .nom Then
+                    MsgBox("Les statistiques complétes du joueur " & .nom & ": " & vbCrLf & vbCrLf & "-" & .meilleurTemps & vbCrLf & vbCrLf & "-" & .nbPartieJoue & vbCrLf & vbCrLf & "-" & .cumul, vbYes, "INFORMATION")
+                End If
+            End With
+        Next
     End Sub
 End Class
