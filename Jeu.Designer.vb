@@ -36,10 +36,10 @@ Partial Class Jeu
         'lblNom
         '
         Me.lblNom.AutoSize = True
-        Me.lblNom.Font = New System.Drawing.Font("Shanghai", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNom.Font = New System.Drawing.Font("Mistral", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNom.Location = New System.Drawing.Point(12, 129)
         Me.lblNom.Name = "lblNom"
-        Me.lblNom.Size = New System.Drawing.Size(106, 32)
+        Me.lblNom.Size = New System.Drawing.Size(89, 44)
         Me.lblNom.TabIndex = 1
         Me.lblNom.Text = "Label1"
         '
@@ -49,10 +49,10 @@ Partial Class Jeu
         'lblTimer
         '
         Me.lblTimer.AutoSize = True
-        Me.lblTimer.Font = New System.Drawing.Font("Shanghai", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTimer.Font = New System.Drawing.Font("Mistral", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTimer.Location = New System.Drawing.Point(14, 209)
         Me.lblTimer.Name = "lblTimer"
-        Me.lblTimer.Size = New System.Drawing.Size(74, 23)
+        Me.lblTimer.Size = New System.Drawing.Size(85, 42)
         Me.lblTimer.TabIndex = 2
         Me.lblTimer.Text = "Label1"
         '
@@ -66,16 +66,16 @@ Partial Class Jeu
         'lblTitre
         '
         Me.lblTitre.AutoSize = True
-        Me.lblTitre.Font = New System.Drawing.Font("Shanghai", 42.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitre.Font = New System.Drawing.Font("Mistral", 42.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitre.Location = New System.Drawing.Point(269, 24)
         Me.lblTitre.Name = "lblTitre"
-        Me.lblTitre.Size = New System.Drawing.Size(219, 67)
+        Me.lblTitre.Size = New System.Drawing.Size(192, 67)
         Me.lblTitre.TabIndex = 4
         Me.lblTitre.Text = "SUDOKU"
         '
         'btnRetour
         '
-        Me.btnRetour.Font = New System.Drawing.Font("Shanghai", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRetour.Font = New System.Drawing.Font("Mistral", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRetour.Location = New System.Drawing.Point(18, 546)
         Me.btnRetour.Name = "btnRetour"
         Me.btnRetour.Size = New System.Drawing.Size(75, 55)

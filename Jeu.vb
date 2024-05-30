@@ -73,6 +73,11 @@ Public Class Jeu
     Private Sub VerifSaisie(sender As Object, e As KeyPressEventArgs)
         Dim txtbox As TextBox = CType(sender, TextBox)
         Dim pos As Point = txtbox.Tag
+
+        If txtbox.Text <> "" Then
+            Exit Sub
+        End If
+
         txtbox.ForeColor = Color.Black
 
         If Not EstNombreValide(pos.X, pos.Y, e.KeyChar) Then

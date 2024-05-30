@@ -53,7 +53,8 @@
         For i As Integer = 0 To nbJoueurs - 1
             With joueurs(i)
                 If cmbBoxnom.Text = .nom Then
-                    MsgBox("Les statistiques complétes du joueur " & .nom & ": " & vbCrLf & vbCrLf & "-" & .meilleurTemps & vbCrLf & vbCrLf & "-" & .nbPartieJoue & vbCrLf & vbCrLf & "-" & .cumul, vbYes, "INFORMATION")
+                    MsgBox("Les statistiques complétes du joueur : " & .nom & ": " & vbCrLf & vbCrLf & "- Meilleur temps" & .meilleurTemps & vbCrLf & vbCrLf &
+                           "- Nombre de parties jouées" & .nbPartieJoue & vbCrLf & vbCrLf & "- Temps joué" & .cumul, vbYes, "INFORMATION")
                 End If
             End With
         Next
