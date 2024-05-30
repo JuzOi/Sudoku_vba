@@ -4,7 +4,6 @@ Imports System.Security.Cryptography.X509Certificates
 
 Public Class Jeu
     Private Const TAILLE_BOX As Integer = 20
-    Private Const TEMPS_LIMITE As Integer = 420
     Dim compteurTemps As Integer = 0
     Dim solution(,) As Integer
     Dim abandon As Boolean

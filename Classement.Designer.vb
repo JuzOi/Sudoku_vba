@@ -22,40 +22,76 @@ Partial Class Classement
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.lstNom = New System.Windows.Forms.ListBox()
+        Me.lstScore = New System.Windows.Forms.ListBox()
         Me.btnRetour = New System.Windows.Forms.Button()
-        Me.lstClassement = New System.Windows.Forms.ListBox()
+        Me.btnTrieNom = New System.Windows.Forms.Button()
+        Me.btnTrieScore = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'lstNom
+        '
+        Me.lstNom.FormattingEnabled = True
+        Me.lstNom.Location = New System.Drawing.Point(12, 36)
+        Me.lstNom.Name = "lstNom"
+        Me.lstNom.Size = New System.Drawing.Size(158, 381)
+        Me.lstNom.TabIndex = 1
+        '
+        'lstScore
+        '
+        Me.lstScore.FormattingEnabled = True
+        Me.lstScore.Location = New System.Drawing.Point(295, 36)
+        Me.lstScore.Name = "lstScore"
+        Me.lstScore.Size = New System.Drawing.Size(158, 381)
+        Me.lstScore.TabIndex = 2
         '
         'btnRetour
         '
-        Me.btnRetour.Location = New System.Drawing.Point(342, 374)
+        Me.btnRetour.Font = New System.Drawing.Font("Shanghai", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRetour.Location = New System.Drawing.Point(12, 434)
         Me.btnRetour.Name = "btnRetour"
-        Me.btnRetour.Size = New System.Drawing.Size(152, 43)
-        Me.btnRetour.TabIndex = 0
-        Me.btnRetour.Text = "retour"
+        Me.btnRetour.Size = New System.Drawing.Size(75, 55)
+        Me.btnRetour.TabIndex = 6
+        Me.btnRetour.Text = "←"
+        Me.btnRetour.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnRetour.UseVisualStyleBackColor = True
         '
-        'lstClassement
+        'btnTrieNom
         '
-        Me.lstClassement.FormattingEnabled = True
-        Me.lstClassement.Location = New System.Drawing.Point(12, 36)
-        Me.lstClassement.Name = "lstClassement"
-        Me.lstClassement.Size = New System.Drawing.Size(282, 381)
-        Me.lstClassement.TabIndex = 1
+        Me.btnTrieNom.Location = New System.Drawing.Point(12, 7)
+        Me.btnTrieNom.Name = "btnTrieNom"
+        Me.btnTrieNom.Size = New System.Drawing.Size(62, 23)
+        Me.btnTrieNom.TabIndex = 7
+        Me.btnTrieNom.Text = "Trier"
+        Me.btnTrieNom.UseVisualStyleBackColor = True
+        '
+        'btnTrieScore
+        '
+        Me.btnTrieScore.Location = New System.Drawing.Point(295, 7)
+        Me.btnTrieScore.Name = "btnTrieScore"
+        Me.btnTrieScore.Size = New System.Drawing.Size(62, 23)
+        Me.btnTrieScore.TabIndex = 8
+        Me.btnTrieScore.Text = "Trier"
+        Me.btnTrieScore.UseVisualStyleBackColor = True
         '
         'Classement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(512, 450)
-        Me.Controls.Add(Me.lstClassement)
+        Me.ClientSize = New System.Drawing.Size(525, 501)
+        Me.Controls.Add(Me.btnTrieScore)
+        Me.Controls.Add(Me.btnTrieNom)
         Me.Controls.Add(Me.btnRetour)
+        Me.Controls.Add(Me.lstScore)
+        Me.Controls.Add(Me.lstNom)
         Me.Name = "Classement"
         Me.Text = "Classement"
         Me.ResumeLayout(False)
 
     End Sub
-
+    Friend WithEvents lstNom As ListBox
+    Friend WithEvents lstScore As ListBox
     Friend WithEvents btnRetour As Button
-    Friend WithEvents lstClassement As ListBox
+    Friend WithEvents btnTrieNom As Button
+    Friend WithEvents btnTrieScore As Button
 End Class

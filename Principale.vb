@@ -14,7 +14,7 @@
                 Dim newJoueur As Joueur
                 With newJoueur
                     .nom = boxNom.Text
-                    .meilleurScore = 0
+                    .meilleurTemps = 1 / 0
                     .nbPartieJoue = 1
                     .cumul = 0
                 End With
