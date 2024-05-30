@@ -39,9 +39,8 @@ Partial Class Jeu
         Me.lblNom.Font = New System.Drawing.Font("Mistral", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNom.Location = New System.Drawing.Point(12, 129)
         Me.lblNom.Name = "lblNom"
-        Me.lblNom.Size = New System.Drawing.Size(89, 44)
+        Me.lblNom.Size = New System.Drawing.Size(0, 44)
         Me.lblNom.TabIndex = 1
-        Me.lblNom.Text = "Label1"
         '
         'monTimer
         '
@@ -52,9 +51,8 @@ Partial Class Jeu
         Me.lblTimer.Font = New System.Drawing.Font("Mistral", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTimer.Location = New System.Drawing.Point(14, 209)
         Me.lblTimer.Name = "lblTimer"
-        Me.lblTimer.Size = New System.Drawing.Size(85, 42)
+        Me.lblTimer.Size = New System.Drawing.Size(0, 42)
         Me.lblTimer.TabIndex = 2
-        Me.lblTimer.Text = "Label1"
         '
         'pnlGrille
         '

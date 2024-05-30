@@ -37,19 +37,31 @@
         nbJoueurs += 1
     End Sub
 
-    Public Sub ActualiserScore(nom As String, newTemps As Integer)
-        Dim tempsDeJeu As Integer = TEMPS_LIMITE - newTemps
+    Public Sub ActualiserScore(nom As String, temps As Integer)
+        Dim newTemps As Integer = TEMPS_LIMITE - temps
         For i As Integer = 0 To nbJoueurs - 1
-            If joueurs(i).nom.Equals(nom) And joueurs(i).meilleurTemps > tempsDeJeu Then
-                joueurs(i).meilleurTemps = tempsDeJeu
+            If joueurs(i).nom.Equals(nom) Then
+                If joueurs(i).meilleurTemps > newTemps Then
+                    joueurs(i).meilleurTemps = newTemps
+                End If
+                joueurs(i).cumul += newTemps
             End If
         Next
     End Sub
 
     Public Sub AjouterTemps(nom As String, temps As Integer)
+        Dim tempsDeJeu As Integer = TEMPS_LIMITE - temps
         For i As Integer = 0 To nbJoueurs - 1
-            If joueurs(i).nom.Equals(nom) And temps > joueurs(i).meilleurTemps Then
-                joueurs(i).cumul = temps
+            If joueurs(i).nom.Equals(nom) Then
+                joueurs(i).cumul += tempsDeJeu
+            End If
+        Next
+    End Sub
+
+    Public Sub AjouterPartie(nom As String)
+        For i As Integer = 0 To nbJoueurs - 1
+            If joueurs(i).nom = nom Then
+                joueurs(i).nbPartieJoue += 1
             End If
         Next
     End Sub
@@ -77,7 +89,4 @@
             Next
         Next
     End Sub
-
-
-
 End Module

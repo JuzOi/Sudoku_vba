@@ -123,7 +123,7 @@ Public Class Jeu
 
         If compteurTemps = 0 Then
             monTimer.Stop()
-            AjouterTemps(lblNom.Text, compteurTemps)
+            ActualiserScore(lblNom.Text, compteurTemps)
             MsgBox("Dommage tu n'as pas résolu le sudoku", vbYes)
             btnSolution.Select()
         End If
@@ -256,7 +256,7 @@ Public Class Jeu
     Private Function estRemplis() As Boolean
         For i As Integer = 0 To taille_grille - 1
             For j As Integer = 0 To taille_grille - 1
-                If boxTab(i)(j).Text = "" Then
+                If boxTab(i)(j).Text <> solution(i, j).ToString Then
                     Return False
                 End If
             Next

@@ -1,6 +1,11 @@
 ﻿Public Class Classement
     Private Sub Classement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Init()
+    End Sub
+
+    Public Sub Init()
         AfficherClassement()
+        InitialiserComboBox()
     End Sub
 
     Public Sub AfficherClassement()
@@ -11,6 +16,13 @@
                 lstNom.Items.Add(.nom)
                 lstScore.Items.Add(.meilleurTemps)
             End With
+        Next
+    End Sub
+
+    Public Sub InitialiserComboBox()
+        cmbBoxnom.Items.Clear()
+        For i As Integer = 0 To nbJoueurs - 1
+            cmbBoxnom.Items.Add(joueurs(i).nom)
         Next
     End Sub
 
@@ -43,20 +55,25 @@
         Principale.Show()
     End Sub
 
-    Private Sub cmbom_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBoxnom.SelectedIndexChanged
-        If cmbBoxnom.Text = lstNom.Text Then
-            lstNom.Select()
-        End If
-    End Sub
-
-    Private Sub btnInfoJoueur_Click(sender As Object, e As EventArgs) Handles btnInfoJoueur.Click
+    Private Sub btnInfoJoueur_Click(sender As Object, e As EventArgs) Handles btnStatistique.Click
         For i As Integer = 0 To nbJoueurs - 1
             With joueurs(i)
                 If cmbBoxnom.Text = .nom Then
-                    MsgBox("Les statistiques complétes du joueur : " & .nom & ": " & vbCrLf & vbCrLf & "- Meilleur temps" & .meilleurTemps & vbCrLf & vbCrLf &
-                           "- Nombre de parties jouées" & .nbPartieJoue & vbCrLf & vbCrLf & "- Temps joué" & .cumul, vbYes, "INFORMATION")
+                    MsgBox("Les statistiques complétes du joueur : " & .nom & ": " & vbCrLf & vbCrLf & "- Meilleur temps : " & .meilleurTemps & vbCrLf & vbCrLf &
+                           "- Nombre de parties jouées : " & .nbPartieJoue & vbCrLf & vbCrLf & "- Temps de jeux : " & .cumul, vbYes, "INFORMATION")
                 End If
             End With
         Next
     End Sub
+
+    Private Sub cmbBoxnom_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBoxnom.SelectedIndexChanged
+        Dim selectedNom As String = cmbBoxnom.SelectedItem.ToString()
+        For i As Integer = 0 To lstNom.Items.Count - 1
+            If lstNom.Items(i).ToString() = selectedNom Then
+                Synchroniser(i)
+                Exit For
+            End If
+        Next
+    End Sub
+
 End Class

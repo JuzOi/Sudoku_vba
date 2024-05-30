@@ -15,11 +15,12 @@
                 With newJoueur
                     .nom = boxNom.Text
                     .meilleurTemps = 1 / 0
-                    .nbPartieJoue = 1
+                    .nbPartieJoue = 0
                     .cumul = 0
                 End With
                 Ajout(newJoueur)
             End If
+            AjouterPartie(boxNom.Text)
             taille_grille = taille_zone * taille_zone
             Me.Hide()
             Jeu.Init()
@@ -40,16 +41,15 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
+        Classement.Init()
         Classement.Show()
-        Classement.AfficherClassement()
     End Sub
     Private Sub btnRegle_Click(sender As Object, e As EventArgs) Handles btnRegle.Click
         MsgBox("Notre sudoku marche ainsi : " & vbCrLf & vbCrLf & "-Rentrez un pseudo " & vbCrLf & vbCrLf &
                "-Choisir un niveau (la taille de la grille et du nombre de cases cachées) " & vbCrLf &
                "Puis, quand la partie aura commencé, vous aurez 7 minutes pour résoudre le sudoku." & vbCrLf & vbCrLf &
                " Vous pouvez bien sûr abandonner en cliquant sur la flèche, ce qui vous permettra d'afficher la solution." & vbCrLf & vbCrLf &
-               " Si vous arrivez à résoudre le sudoku dans le temps imparti, votre score sera affiché dans le tableau de classement. Pour le voir, 
-               il vous suffira de cliquer sur le bouton classement.", vbYes, "Régle")
+               " Si vous arrivez à résoudre le sudoku dans le temps imparti, votre score sera affiché dans le tableau de classement. Pour le voir, il vous suffira de cliquer sur le bouton classement.", vbYes, "Régle")
     End Sub
 
     Private Sub btnGrille4_Click(sender As Object, e As EventArgs) Handles btnGrille4.Click
