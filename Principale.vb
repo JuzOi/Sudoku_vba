@@ -5,6 +5,10 @@
     Public Sub Init()
         btnGrille3.PerformClick()
         btnFacile.Checked = True
+        pnlSelection.Show()
+        pnlNiveau.Hide()
+        btnCommencer.Hide()
+        btnRetour.Hide()
     End Sub
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
         If boxNom.Text.Trim <> "" Then
@@ -20,18 +24,13 @@
                 End With
                 Ajout(newJoueur)
             End If
-            AjouterPartie(boxNom.Text)
-            taille_grille = taille_zone * taille_zone
-            Me.Hide()
-            Jeu.Init()
-            Jeu.Show()
+            pnlSelection.Hide()
+            pnlNiveau.Show()
+            btnCommencer.Show()
+            btnRetour.Show()
         Else
             MsgBox("Veuillez saisir un nom")
         End If
-    End Sub
-
-    Private Sub boxNom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles boxNom.KeyPress
-        boxNom.DroppedDown = True
     End Sub
 
     Private Sub btnQuitter_Click(sender As Object, e As EventArgs) Handles btnQuitter.Click
@@ -69,5 +68,20 @@
         If btn.Checked = True Then
             celluleASupprimer = difficulte(btn.Text)
         End If
+    End Sub
+
+    Private Sub btnJouer_Click(sender As Object, e As EventArgs) Handles btnCommencer.Click
+        IncPartie(boxNom.Text)
+        taille_grille = taille_zone * taille_zone
+        Me.Hide()
+        Jeu.Init()
+        Jeu.Show()
+    End Sub
+
+    Private Sub btnRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
+        pnlNiveau.Hide()
+        btnCommencer.Hide()
+        btnRetour.Hide()
+        pnlSelection.Show()
     End Sub
 End Class

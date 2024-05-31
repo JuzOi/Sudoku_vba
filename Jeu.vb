@@ -6,7 +6,7 @@ Public Class Jeu
     Private Const TAILLE_BOX As Integer = 20
     Dim compteurTemps As Integer = 0
     Dim solution(,) As Integer
-    Dim abandon As Boolean
+    Dim partieTerminer As Boolean
 
     Dim boxTab()() As TextBox
 
@@ -59,7 +59,7 @@ Public Class Jeu
     End Sub
 
     Private Sub initForm()
-        abandon = False
+        partieTerminer = False
         lblNom.Text = Principale.boxNom.Text
     End Sub
 
@@ -118,7 +118,7 @@ Public Class Jeu
             monTimer.Stop()
             ActualiserScore(lblNom.Text, compteurTemps)
             MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
-            abandon = True
+            partieTerminer = True
         End If
 
         If compteurTemps = 0 Then
@@ -130,20 +130,22 @@ Public Class Jeu
     End Sub
 
     Private Sub ButtonRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
-        If abandon Then
+        If partieTerminer Then
             Me.Hide()
+            Principale.Init()
             Principale.Show()
             Exit Sub
         End If
 
         If MsgBox("Souhaitez-vous vraiment abandonner ?", vbYesNo) = vbYes Then
-            abandon = True
+            partieTerminer = True
             AjouterTemps(lblNom.Text, compteurTemps)
             monTimer.Stop()
             If MsgBox("Voulez-vous voir la solution ?", vbYesNo) = vbYes Then
                 MontrerSolution()
             Else
                 Me.Hide()
+                Principale.Init()
                 Principale.Show()
             End If
         End If

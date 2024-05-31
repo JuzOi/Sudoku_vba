@@ -90,6 +90,7 @@ Partial Class Jeu
         Me.btnRegenerer.TabIndex = 6
         Me.btnRegenerer.Text = "regénérer"
         Me.btnRegenerer.UseVisualStyleBackColor = True
+        Me.btnRegenerer.Visible = False
         '
         'btnSolution
         '

@@ -58,7 +58,7 @@
         Next
     End Sub
 
-    Public Sub AjouterPartie(nom As String)
+    Public Sub IncPartie(nom As String)
         For i As Integer = 0 To nbJoueurs - 1
             If joueurs(i).nom = nom Then
                 joueurs(i).nbPartieJoue += 1
