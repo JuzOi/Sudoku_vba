@@ -27,7 +27,7 @@ Partial Class Principale
         Me.btnLancer = New System.Windows.Forms.Button()
         Me.btnQuitter = New System.Windows.Forms.Button()
         Me.lblTitre = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnClassement = New System.Windows.Forms.Button()
         Me.btnGrille4 = New System.Windows.Forms.Button()
         Me.btnGrille3 = New System.Windows.Forms.Button()
         Me.btnRegle = New System.Windows.Forms.Button()
@@ -35,12 +35,12 @@ Partial Class Principale
         Me.btnMoyen = New System.Windows.Forms.RadioButton()
         Me.btnDifficile = New System.Windows.Forms.RadioButton()
         Me.pnlNiveau = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlSelection = New System.Windows.Forms.Panel()
+        Me.btnOptions = New System.Windows.Forms.Button()
         Me.btnCommencer = New System.Windows.Forms.Button()
         Me.btnRetour = New System.Windows.Forms.Button()
-        Me.btnOptions = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.pnlNiveau.SuspendLayout()
         Me.pnlSelection.SuspendLayout()
         Me.SuspendLayout()
@@ -94,18 +94,18 @@ Partial Class Principale
         Me.lblTitre.TabIndex = 5
         Me.lblTitre.Text = "SUDOKU"
         '
-        'Button1
+        'btnClassement
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(42, 238)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(168, 46)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Classement"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnClassement.BackgroundImage = CType(resources.GetObject("btnClassement.BackgroundImage"), System.Drawing.Image)
+        Me.btnClassement.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnClassement.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClassement.ForeColor = System.Drawing.Color.White
+        Me.btnClassement.Location = New System.Drawing.Point(42, 238)
+        Me.btnClassement.Name = "btnClassement"
+        Me.btnClassement.Size = New System.Drawing.Size(168, 46)
+        Me.btnClassement.TabIndex = 6
+        Me.btnClassement.Text = "Classement"
+        Me.btnClassement.UseVisualStyleBackColor = True
         '
         'btnGrille4
         '
@@ -116,6 +116,7 @@ Partial Class Principale
         Me.btnGrille4.Name = "btnGrille4"
         Me.btnGrille4.Size = New System.Drawing.Size(73, 57)
         Me.btnGrille4.TabIndex = 7
+        Me.btnGrille4.Tag = "4"
         Me.btnGrille4.UseVisualStyleBackColor = False
         '
         'btnGrille3
@@ -128,6 +129,7 @@ Partial Class Principale
         Me.btnGrille3.Name = "btnGrille3"
         Me.btnGrille3.Size = New System.Drawing.Size(68, 57)
         Me.btnGrille3.TabIndex = 8
+        Me.btnGrille3.Tag = "3"
         Me.btnGrille3.UseVisualStyleBackColor = False
         '
         'btnRegle
@@ -200,12 +202,34 @@ Partial Class Principale
         Me.pnlNiveau.Size = New System.Drawing.Size(193, 268)
         Me.pnlNiveau.TabIndex = 13
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(116, 79)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 22)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "4 x 4"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(26, 80)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 22)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "3 x 3"
+        '
         'pnlSelection
         '
         Me.pnlSelection.BackColor = System.Drawing.Color.Transparent
         Me.pnlSelection.Controls.Add(Me.btnOptions)
         Me.pnlSelection.Controls.Add(Me.btnRegle)
-        Me.pnlSelection.Controls.Add(Me.Button1)
+        Me.pnlSelection.Controls.Add(Me.btnClassement)
         Me.pnlSelection.Controls.Add(Me.btnQuitter)
         Me.pnlSelection.Controls.Add(Me.btnLancer)
         Me.pnlSelection.Controls.Add(Me.boxNom)
@@ -213,6 +237,19 @@ Partial Class Principale
         Me.pnlSelection.Name = "pnlSelection"
         Me.pnlSelection.Size = New System.Drawing.Size(245, 348)
         Me.pnlSelection.TabIndex = 14
+        '
+        'btnOptions
+        '
+        Me.btnOptions.BackgroundImage = CType(resources.GetObject("btnOptions.BackgroundImage"), System.Drawing.Image)
+        Me.btnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnOptions.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOptions.ForeColor = System.Drawing.Color.White
+        Me.btnOptions.Location = New System.Drawing.Point(42, 131)
+        Me.btnOptions.Name = "btnOptions"
+        Me.btnOptions.Size = New System.Drawing.Size(168, 46)
+        Me.btnOptions.TabIndex = 10
+        Me.btnOptions.Text = "Options"
+        Me.btnOptions.UseVisualStyleBackColor = True
         '
         'btnCommencer
         '
@@ -241,41 +278,6 @@ Partial Class Principale
         Me.btnRetour.Text = "←"
         Me.btnRetour.UseVisualStyleBackColor = False
         '
-        'btnOptions
-        '
-        Me.btnOptions.BackgroundImage = CType(resources.GetObject("btnOptions.BackgroundImage"), System.Drawing.Image)
-        Me.btnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnOptions.Font = New System.Drawing.Font("Mistral", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOptions.ForeColor = System.Drawing.Color.White
-        Me.btnOptions.Location = New System.Drawing.Point(42, 131)
-        Me.btnOptions.Name = "btnOptions"
-        Me.btnOptions.Size = New System.Drawing.Size(168, 46)
-        Me.btnOptions.TabIndex = 10
-        Me.btnOptions.Text = "Options"
-        Me.btnOptions.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(26, 80)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(41, 22)
-        Me.Label1.TabIndex = 13
-        Me.Label1.Text = "3 x 3"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Mistral", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(116, 79)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 22)
-        Me.Label2.TabIndex = 14
-        Me.Label2.Text = "4 x 4"
-        '
         'Principale
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -301,7 +303,7 @@ Partial Class Principale
     Friend WithEvents btnLancer As Button
     Friend WithEvents btnQuitter As Button
     Friend WithEvents lblTitre As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnClassement As Button
     Friend WithEvents btnGrille4 As Button
     Friend WithEvents btnGrille3 As Button
     Friend WithEvents btnRegle As Button

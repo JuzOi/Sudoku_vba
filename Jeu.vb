@@ -16,13 +16,14 @@ Public Class Jeu
     Public Sub Init()
         DetruireGrille()
         initForm()
-        initTimer()
         initGrille()
+        initTimer()
     End Sub
     Private Sub initTimer()
-        compteurTemps = TEMPS_LIMITE
+        compteurTemps = Options.scrollTime.Value
         monTimer.Interval = 1000
         monTimer.Start()
+        monTimer_Tick(Me, EventArgs.Empty)
     End Sub
 
     Private Sub initGrille()
@@ -116,14 +117,14 @@ Public Class Jeu
 
         If estRemplis() And compteurTemps <> 0 Then
             monTimer.Stop()
-            ActualiserScore(lblNom.Text, compteurTemps)
+            ActualiserScore(lblNom.Text, compteurTemps, Principale.GetDifficulte)
             MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
             partieTerminer = True
         End If
 
         If compteurTemps = 0 Then
             monTimer.Stop()
-            ActualiserScore(lblNom.Text, compteurTemps)
+            ActualiserScore(lblNom.Text, compteurTemps, Principale.GetDifficulte)
             MsgBox("Dommage tu n'as pas résolu le sudoku", vbYes)
             btnSolution.Select()
         End If
@@ -208,7 +209,7 @@ Public Class Jeu
 
     Private Sub RemplirGrille()
         Dim rnd As New Random()
-        Dim compteur As Integer = celluleASupprimer
+        Dim compteur As Integer = difficulte(Principale.GetDifficulte)
 
         While compteur > 0
             Dim ligne As Integer = rnd.Next(taille_grille)

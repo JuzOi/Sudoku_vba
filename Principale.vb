@@ -1,6 +1,7 @@
 ﻿Public Class Principale
     Private Sub Principale_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init()
+        initTextBox()
     End Sub
     Public Sub Init()
         btnGrille3.PerformClick()
@@ -9,7 +10,11 @@
         pnlNiveau.Hide()
         btnCommencer.Hide()
         btnRetour.Hide()
-        initTextBox()
+    End Sub
+    Private Sub initTextBox()
+        For i As Integer = 0 To nbJoueurs - 1
+            boxNom.Items.Add(joueurs(i).nom)
+        Next
     End Sub
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
         If boxNom.Text.Trim <> "" Then
@@ -19,6 +24,7 @@
                 With newJoueur
                     .nom = boxNom.Text
                     .meilleurTemps = 1 / 0
+                    .difficulte = ""
                     .nbPartieJoue = 0
                     .cumul = 0
                 End With
@@ -44,7 +50,7 @@
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BtnClassement_Click(sender As Object, e As EventArgs) Handles btnClassement.Click
         Me.Hide()
         Classement.Init()
         Classement.Show()
@@ -69,13 +75,6 @@
         btnGrille4.BackColor = Color.White
     End Sub
 
-    Private Sub btnFacile_CheckedChanged(sender As Object, e As EventArgs) Handles btnFacile.CheckedChanged, btnMoyen.CheckedChanged, btnDifficile.CheckedChanged
-        Dim btn As RadioButton = CType(sender, RadioButton)
-        If btn.Checked = True Then
-            celluleASupprimer = difficulte(btn.Text)
-        End If
-    End Sub
-
     Private Sub btnJouer_Click(sender As Object, e As EventArgs) Handles btnCommencer.Click
         IncPartie(boxNom.Text)
         taille_grille = taille_zone * taille_zone
@@ -91,9 +90,20 @@
         pnlSelection.Show()
     End Sub
 
-    Private Sub initTextBox()
-        For i As Integer = 0 To nbJoueurs - 1
-            boxNom.Items.Add(joueurs(i).nom)
+    Public Function GetDifficulte() As String
+        For Each control As Control In pnlNiveau.Controls
+            If TypeOf control Is RadioButton Then
+                Dim btn As RadioButton = CType(control, RadioButton)
+                If btn.Checked = True Then
+                    Return btn.Text
+                End If
+            End If
         Next
+        Return ""
+    End Function
+
+    Private Sub btnOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
+        Me.Hide()
+        Options.Show()
     End Sub
 End Class

@@ -14,7 +14,13 @@
         For i As Integer = 0 To nbJoueurs - 1
             With joueurs(i)
                 lstNom.Items.Add(.nom)
-                lstScore.Items.Add(.meilleurTemps)
+                If (.meilleurTemps = 1 / 0) Then
+                    lstScore.Items.Add("--:--")
+                Else
+                    Dim minute As Integer = .meilleurTemps / 60
+                    Dim seconde As Integer = .meilleurTemps Mod 60
+                    lstScore.Items.Add(String.Format("{0:D2}:{1:D2}", minute, seconde) & " en " & .difficulte)
+                End If
             End With
         Next
     End Sub

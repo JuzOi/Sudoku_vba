@@ -4,6 +4,7 @@ Module Main
     Structure Joueur
         Dim nom As String
         Dim meilleurTemps As Double
+        Dim difficulte As String
         Dim nbPartieJoue As Integer
         Dim cumul As Integer
     End Structure
@@ -14,16 +15,17 @@ Module Main
 
     Public taille_zone As Integer
     Public taille_grille As Integer
-    Public celluleASupprimer As Integer
     Public difficulte As Collection
-    Public Const TEMPS_LIMITE As Integer = 420
-
-
-
 
     Sub Main()
         nbJoueurs = 0
         ReDim joueurs(0)
+        difficulte = New Collection From {
+            {60, "Facile"},
+            {45, "Moyen"},
+            {30, "Difficile"}
+        }
+
         Dim F1 As Integer = FreeFile()
         FileOpen(F1, "Joueur.txt", OpenMode.Random)
         Dim joueur As New Joueur
@@ -33,12 +35,7 @@ Module Main
         Loop
         FileClose(F1)
 
-        difficulte = New Collection From {
-            {50, "Facile"},
-            {35, "Moyen"},
-            {20, "Difficile"}
-        }
-
+        Options.InitScrollBar()
         Application.Run(Principale)
     End Sub
 
@@ -50,12 +47,13 @@ Module Main
         nbJoueurs += 1
     End Sub
 
-    Public Sub ActualiserScore(nom As String, temps As Integer)
-        Dim newTemps As Integer = TEMPS_LIMITE - temps
+    Public Sub ActualiserScore(nom As String, temps As Integer, difficulte As String)
+        Dim newTemps As Integer = Options.scrollTime.Value - temps
         For i As Integer = 0 To nbJoueurs - 1
             If joueurs(i).nom.Equals(nom) Then
                 If joueurs(i).meilleurTemps > newTemps Then
                     joueurs(i).meilleurTemps = newTemps
+                    joueurs(i).difficulte = difficulte
                 End If
                 joueurs(i).cumul += newTemps
             End If
@@ -63,7 +61,7 @@ Module Main
     End Sub
 
     Public Sub AjouterTemps(nom As String, temps As Integer)
-        Dim tempsDeJeu As Integer = TEMPS_LIMITE - temps
+        Dim tempsDeJeu As Integer = Options.scrollTime.Value - temps
         For i As Integer = 0 To nbJoueurs - 1
             If joueurs(i).nom.Equals(nom) Then
                 joueurs(i).cumul += tempsDeJeu
