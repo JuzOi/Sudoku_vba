@@ -1,4 +1,6 @@
-﻿Module Main
+﻿Imports System.IO
+
+Module Main
     Structure Joueur
         Dim nom As String
         Dim meilleurTemps As Double
@@ -16,9 +18,20 @@
     Public difficulte As Collection
     Public Const TEMPS_LIMITE As Integer = 420
 
+
+
+
     Sub Main()
         nbJoueurs = 0
         ReDim joueurs(0)
+        Dim F1 As Integer = FreeFile()
+        FileOpen(F1, "Joueur.txt", OpenMode.Random)
+        Dim joueur As New Joueur
+        Do Until EOF(F1)
+            FileGet(F1, joueur)
+            Ajout(joueur)
+        Loop
+        FileClose(F1)
 
         difficulte = New Collection From {
             {50, "Facile"},
