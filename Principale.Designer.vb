@@ -283,7 +283,6 @@ Partial Class Principale
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.BackgroundImage = Global.Sudoku.My.Resources.Resources.MinecraftTheme
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1083, 639)
         Me.Controls.Add(Me.btnRetour)

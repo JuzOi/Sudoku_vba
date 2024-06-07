@@ -108,7 +108,6 @@ Partial Class Jeu
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.BackgroundImage = Global.Sudoku.My.Resources.Resources.MinecraftTheme
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(721, 613)
         Me.Controls.Add(Me.btnSolution)

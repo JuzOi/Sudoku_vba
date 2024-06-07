@@ -1,8 +1,4 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Runtime.Remoting.Channels
-Imports System.Security.Cryptography.X509Certificates
-
-Public Class Jeu
+﻿Public Class Jeu
     Private Const TAILLE_BOX As Integer = 20
     Dim compteurTemps As Integer = 0
     Dim solution(,) As Integer
@@ -115,18 +111,8 @@ Public Class Jeu
         End If
         compteurTemps -= 1
 
-        If estRemplis() And compteurTemps <> 0 Then
-            monTimer.Stop()
-            ActualiserScore(lblNom.Text, compteurTemps, Principale.GetDifficulte)
-            MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
-            partieTerminer = True
-        End If
-
-        If compteurTemps = 0 Then
-            monTimer.Stop()
-            ActualiserScore(lblNom.Text, compteurTemps, Principale.GetDifficulte)
-            MsgBox("Dommage tu n'as pas résolu le sudoku", vbYes)
-            btnSolution.Select()
+        If EstFini() Then
+            TerminerPartie()
         End If
     End Sub
 
@@ -256,7 +242,7 @@ Public Class Jeu
         MontrerSolution()
     End Sub
 
-    Private Function estRemplis() As Boolean
+    Private Function EstRemplis() As Boolean
         For i As Integer = 0 To taille_grille - 1
             For j As Integer = 0 To taille_grille - 1
                 If boxTab(i)(j).Text <> solution(i, j).ToString Then
@@ -286,4 +272,20 @@ Public Class Jeu
         End If
     End Sub
 
+    Private Function EstFini() As Boolean
+        Return EstRemplis() Or compteurTemps = 0
+    End Function
+    Private Sub TerminerPartie()
+        monTimer.Stop()
+        ActualiserScore(lblNom.Text, compteurTemps, Principale.GetDifficulte)
+        AjouterTemps(lblNom.Text, compteurTemps)
+
+        If compteurTemps <> 0 Then
+            MsgBox("Bravo, tu a résolu le sudoku. " & vbCrLf & " Ton temps va être affiché dans le classement, nous t'inviter à le regarder !!!", vbYes)
+            partieTerminer = True
+        Else
+            MsgBox("Dommage tu n'as pas résolu le sudoku", vbYes)
+            MontrerSolution()
+        End If
+    End Sub
 End Class

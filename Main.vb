@@ -9,13 +9,14 @@ Module Main
         Dim cumul As Integer
     End Structure
 
-    Public joueurs() As Joueur
-    Public nbJoueurs As Integer
+    Private joueurs() As Joueur
+    Private nbJoueurs As Integer
     Const PAS_EXT As Integer = 2
+    Public difficulte As Collection
+    Public son As System.Media.SoundPlayer
 
     Public taille_zone As Integer
     Public taille_grille As Integer
-    Public difficulte As Collection
 
     Sub Main()
         nbJoueurs = 0
@@ -26,20 +27,25 @@ Module Main
             {30, "Difficile"}
         }
 
-        Dim F1 As Integer = FreeFile()
-        FileOpen(F1, "Joueur.txt", OpenMode.Random)
-        Dim joueur As New Joueur
-        Do Until EOF(F1)
-            FileGet(F1, joueur)
-            Ajout(joueur)
-        Loop
-        FileClose(F1)
+        ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
+        ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
+        ChargerJoueurs()
 
         Options.InitScrollBar()
         Application.Run(Principale)
     End Sub
 
-    Public Sub Ajout(j As Joueur)
+    Private Sub ChargerJoueurs()
+        Dim F1 As Integer = FreeFile()
+        FileOpen(F1, "Joueur.txt", OpenMode.Random)
+        Dim joueur As New Joueur
+        Do Until EOF(F1)
+            FileGet(F1, joueur)
+            AjouterJoueur(joueur)
+        Loop
+        FileClose(F1)
+    End Sub
+    Public Sub AjouterJoueur(j As Joueur)
         If UBound(joueurs) = nbJoueurs - 1 Then
             ReDim Preserve joueurs(PAS_EXT * nbJoueurs)
         End If
@@ -55,7 +61,6 @@ Module Main
                     joueurs(i).meilleurTemps = newTemps
                     joueurs(i).difficulte = difficulte
                 End If
-                joueurs(i).cumul += newTemps
             End If
         Next
     End Sub
@@ -99,5 +104,44 @@ Module Main
                 End If
             Next
         Next
+    End Sub
+
+    Public Sub ChangerMusique(chemin As String)
+        If son IsNot Nothing Then
+            son.Stop()
+            son.Dispose()
+        End If
+        son = New Media.SoundPlayer(Application.StartupPath & chemin)
+        son.Load()
+        son.PlayLooping()
+    End Sub
+
+    Public Function GetNbJoueurs() As Integer
+        Return nbJoueurs
+    End Function
+
+    Public Function GetJoueurs(index As Integer) As Joueur
+        If index >= 0 And index < nbJoueurs Then
+            Return joueurs(index)
+        End If
+        Return Nothing
+    End Function
+
+    Public Function NouveauJoueur(nom As String) As Joueur
+        Dim newJoueur As Joueur
+        With newJoueur
+            .nom = nom
+            .meilleurTemps = 1 / 0
+            .difficulte = ""
+            .nbPartieJoue = 0
+            .cumul = 0
+        End With
+        Return newJoueur
+    End Function
+
+    Public Sub ChangerBackground(chemin As String)
+        Principale.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
+        Jeu.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
+        Classement.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
     End Sub
 End Module

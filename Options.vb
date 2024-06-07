@@ -6,6 +6,7 @@
         rbtMinecraft.Checked = True
         rbtVolumeOn.Checked = True
     End Sub
+
     Public Sub InitScrollBar()
         scrollTime.Minimum = 0
         scrollTime.Maximum = 3600
@@ -29,41 +30,36 @@
     End Sub
 
     Private Sub rbtMario_CheckedChanged(sender As Object, e As EventArgs) Handles rbtMario.CheckedChanged
-        Principale.BackgroundImage = Sudoku.My.Resources.Resources.MarioTheme
-        Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MarioTheme
+        ChangerBackground("\..\..\My Project\Images\MarioTheme.jpg")
         rbtClair.Checked = True
         pnlThemeSombre.Visible = True
         If rbtVolumeOn.Checked = True Then
-            My.Computer.Audio.Play("SuperMarioBrosThemeSong.wav", AudioPlayMode.BackgroundLoop)
+            ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
         End If
     End Sub
 
     Private Sub rbtMinecraft_CheckedChanged(sender As Object, e As EventArgs) Handles rbtMinecraft.CheckedChanged
-        Principale.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftTheme
-        Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftTheme
+        ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
         rbtClair.Checked = True
         pnlThemeSombre.Visible = True
 
         If rbtVolumeOn.Checked = True Then
-            My.Computer.Audio.Play("MinecraftThemeSong.wav", AudioPlayMode.BackgroundLoop)
+            ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
         End If
     End Sub
 
     Private Sub rbtClair_CheckedChanged(sender As Object, e As EventArgs) Handles rbtClair.CheckedChanged
         If rbtMario.Checked = True Then
-            Principale.BackgroundImage = Sudoku.My.Resources.Resources.MarioTheme
-            Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MarioDark___Copie
-
+            ChangerBackground("\..\..\My Project\Images\MarioTheme.jpg")
         Else
-            Principale.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftTheme
-            Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftDark
+            ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
         End If
 
         If rbtVolumeOn.Checked = True Then
             If rbtMario.Checked = True Then
-                My.Computer.Audio.Play("SuperMarioBrosThemeSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
             Else
-                My.Computer.Audio.Play("MinecraftDarkSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
             End If
         End If
 
@@ -71,38 +67,36 @@
 
     Private Sub rbtSombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbtSombre.CheckedChanged
         If rbtMario.Checked = True Then
-            Principale.BackgroundImage = Sudoku.My.Resources.Resources.MarioDark___Copie
-            Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MarioDark___Copie
+            ChangerBackground("\..\..\My Project\Images\MarioDark - Copie.png")
         Else
-            Principale.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftDark
-            Jeu.BackgroundImage = Sudoku.My.Resources.Resources.MinecraftDark
+            ChangerBackground("\..\..\My Project\Images\MinecraftDark.png")
         End If
 
         If rbtVolumeOn.Checked = True Then
             If rbtMario.Checked = True Then
-                My.Computer.Audio.Play("MarioDarkSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MarioDarkSong.wav")
             Else
-                My.Computer.Audio.Play("MinecraftDarkSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
             End If
         End If
     End Sub
 
     Private Sub rbtVolumeOff_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOff.CheckedChanged
-        My.Computer.Audio.Stop()
+        son.Stop()
     End Sub
 
     Private Sub rbtVolumeOn_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOn.CheckedChanged
         If rbtMinecraft.Checked = True Then
             If rbtClair.Checked = True Then
-                My.Computer.Audio.Play("MinecraftThemeSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
             Else
-                My.Computer.Audio.Play("MinecraftDarkSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
             End If
         Else
             If rbtClair.Checked = True Then
-                My.Computer.Audio.Play("SuperMarioBrosThemeSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
             Else
-                My.Computer.Audio.Play("MinecraftDarkSong.wav", AudioPlayMode.BackgroundLoop)
+                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
             End If
         End If
 

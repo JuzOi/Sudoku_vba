@@ -1,5 +1,7 @@
 ﻿Public Class Principale
     Private Sub Principale_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        son.Load()
+        son.PlayLooping()
         Init()
         initTextBox()
     End Sub
@@ -10,26 +12,17 @@
         pnlNiveau.Hide()
         btnCommencer.Hide()
         btnRetour.Hide()
-        My.Computer.Audio.Play("MinecraftThemeSong.wav", AudioPlayMode.BackgroundLoop)
     End Sub
     Private Sub initTextBox()
-        For i As Integer = 0 To nbJoueurs - 1
-            boxNom.Items.Add(joueurs(i).nom)
+        For i As Integer = 0 To GetNbJoueurs() - 1
+            boxNom.Items.Add(GetJoueurs(i).nom)
         Next
     End Sub
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
         If boxNom.Text.Trim <> "" Then
             If Not boxNom.Items.Contains(boxNom.Text) Then
                 boxNom.Items.Add(boxNom.Text)
-                Dim newJoueur As Joueur
-                With newJoueur
-                    .nom = boxNom.Text
-                    .meilleurTemps = 1 / 0
-                    .difficulte = ""
-                    .nbPartieJoue = 0
-                    .cumul = 0
-                End With
-                Ajout(newJoueur)
+                AjouterJoueur(NouveauJoueur(boxNom.Text))
             End If
             pnlSelection.Hide()
             pnlNiveau.Show()
@@ -43,8 +36,8 @@
     Private Sub btnQuitter_Click(sender As Object, e As EventArgs) Handles btnQuitter.Click
         Dim F1 As Integer = FreeFile()
         FileOpen(F1, "Joueur.txt", OpenMode.Random)
-        For i As Integer = 0 To nbJoueurs - 1
-            FilePut(F1, joueurs(i))
+        For i As Integer = 0 To GetNbJoueurs() - 1
+            FilePut(F1, GetJoueurs(i))
         Next
         FileClose(F1)
         Jeu.Close()

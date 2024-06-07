@@ -11,8 +11,8 @@
     Public Sub AfficherClassement()
         lstNom.Items.Clear()
         lstScore.Items.Clear()
-        For i As Integer = 0 To nbJoueurs - 1
-            With joueurs(i)
+        For i As Integer = 0 To GetNbJoueurs() - 1
+            With GetJoueurs(i)
                 lstNom.Items.Add(.nom)
                 If (.meilleurTemps = 1 / 0) Then
                     lstScore.Items.Add("--:--")
@@ -27,8 +27,8 @@
 
     Public Sub InitialiserComboBox()
         cmbBoxnom.Items.Clear()
-        For i As Integer = 0 To nbJoueurs - 1
-            cmbBoxnom.Items.Add(joueurs(i).nom)
+        For i As Integer = 0 To GetNbJoueurs() - 1
+            cmbBoxnom.Items.Add(GetJoueurs(i).nom)
         Next
     End Sub
 
@@ -62,8 +62,8 @@
     End Sub
 
     Private Sub btnInfoJoueur_Click(sender As Object, e As EventArgs) Handles btnStatistique.Click
-        For i As Integer = 0 To nbJoueurs - 1
-            With joueurs(i)
+        For i As Integer = 0 To GetNbJoueurs() - 1
+            With GetJoueurs(i)
                 If cmbBoxnom.Text = .nom Then
                     MsgBox("Les statistiques complétes du joueur : " & .nom & ": " & vbCrLf & vbCrLf & "- Meilleur temps : " & .meilleurTemps & vbCrLf & vbCrLf &
                            "- Nombre de parties jouées : " & .nbPartieJoue & vbCrLf & vbCrLf & "- Temps de jeux : " & .cumul, vbYes, "INFORMATION")
