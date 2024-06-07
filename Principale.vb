@@ -10,6 +10,7 @@
         pnlNiveau.Hide()
         btnCommencer.Hide()
         btnRetour.Hide()
+        My.Computer.Audio.Play("MinecraftThemeSong.wav", AudioPlayMode.BackgroundLoop)
     End Sub
     Private Sub initTextBox()
         For i As Integer = 0 To nbJoueurs - 1
@@ -103,7 +104,6 @@
     End Function
 
     Private Sub btnOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
-        Me.Hide()
         Options.Show()
     End Sub
 End Class

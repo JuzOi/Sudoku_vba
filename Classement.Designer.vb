@@ -49,7 +49,7 @@ Partial Class Classement
         '
         'btnRetour
         '
-        Me.btnRetour.Font = New System.Drawing.Font("Shanghai", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRetour.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRetour.Location = New System.Drawing.Point(12, 434)
         Me.btnRetour.Name = "btnRetour"
         Me.btnRetour.Size = New System.Drawing.Size(75, 55)
@@ -97,6 +97,7 @@ Partial Class Classement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(525, 501)
         Me.Controls.Add(Me.btnStatistique)
         Me.Controls.Add(Me.cmbBoxnom)

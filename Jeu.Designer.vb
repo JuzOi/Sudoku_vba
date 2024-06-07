@@ -56,6 +56,7 @@ Partial Class Jeu
         '
         'pnlGrille
         '
+        Me.pnlGrille.BackColor = System.Drawing.Color.Transparent
         Me.pnlGrille.Location = New System.Drawing.Point(268, 129)
         Me.pnlGrille.Name = "pnlGrille"
         Me.pnlGrille.Size = New System.Drawing.Size(353, 314)
@@ -64,6 +65,7 @@ Partial Class Jeu
         'lblTitre
         '
         Me.lblTitre.AutoSize = True
+        Me.lblTitre.BackColor = System.Drawing.Color.Transparent
         Me.lblTitre.Font = New System.Drawing.Font("Mistral", 42.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitre.Location = New System.Drawing.Point(269, 24)
         Me.lblTitre.Name = "lblTitre"
@@ -105,6 +107,9 @@ Partial Class Jeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = Global.Sudoku.My.Resources.Resources.MinecraftTheme
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(721, 613)
         Me.Controls.Add(Me.btnSolution)
         Me.Controls.Add(Me.btnRegenerer)
@@ -113,6 +118,7 @@ Partial Class Jeu
         Me.Controls.Add(Me.pnlGrille)
         Me.Controls.Add(Me.lblTimer)
         Me.Controls.Add(Me.lblNom)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "Jeu"
         Me.Text = "Form1"
