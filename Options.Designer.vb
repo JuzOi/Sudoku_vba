@@ -31,13 +31,16 @@ Partial Class Options
         Me.rbtMinecraft = New System.Windows.Forms.RadioButton()
         Me.rbtMario = New System.Windows.Forms.RadioButton()
         Me.pnlTheme = New System.Windows.Forms.Panel()
+        Me.rbtDragonBall = New System.Windows.Forms.RadioButton()
+        Me.rbtSonic = New System.Windows.Forms.RadioButton()
         Me.pnlThemeSombre = New System.Windows.Forms.Panel()
         Me.rbtClair = New System.Windows.Forms.RadioButton()
-        Me.rbtSombre = New System.Windows.Forms.RadioButton()
+        Me.rbtDark = New System.Windows.Forms.RadioButton()
         Me.grpBoxTheme = New System.Windows.Forms.GroupBox()
         Me.pnlSon = New System.Windows.Forms.Panel()
         Me.rbtVolumeOff = New System.Windows.Forms.RadioButton()
         Me.rbtVolumeOn = New System.Windows.Forms.RadioButton()
+        Me.LabelMusic = New System.Windows.Forms.Label()
         Me.pnlTheme.SuspendLayout()
         Me.pnlThemeSombre.SuspendLayout()
         Me.grpBoxTheme.SuspendLayout()
@@ -100,7 +103,7 @@ Partial Class Options
         'rbtMinecraft
         '
         Me.rbtMinecraft.AutoSize = True
-        Me.rbtMinecraft.Location = New System.Drawing.Point(21, 37)
+        Me.rbtMinecraft.Location = New System.Drawing.Point(22, 59)
         Me.rbtMinecraft.Name = "rbtMinecraft"
         Me.rbtMinecraft.Size = New System.Drawing.Size(69, 17)
         Me.rbtMinecraft.TabIndex = 9
@@ -111,7 +114,7 @@ Partial Class Options
         'rbtMario
         '
         Me.rbtMario.AutoSize = True
-        Me.rbtMario.Location = New System.Drawing.Point(21, 100)
+        Me.rbtMario.Location = New System.Drawing.Point(22, 36)
         Me.rbtMario.Name = "rbtMario"
         Me.rbtMario.Size = New System.Drawing.Size(51, 17)
         Me.rbtMario.TabIndex = 10
@@ -121,60 +124,87 @@ Partial Class Options
         '
         'pnlTheme
         '
+        Me.pnlTheme.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.pnlTheme.Controls.Add(Me.rbtDragonBall)
+        Me.pnlTheme.Controls.Add(Me.rbtSonic)
         Me.pnlTheme.Controls.Add(Me.rbtMinecraft)
         Me.pnlTheme.Controls.Add(Me.rbtMario)
-        Me.pnlTheme.Location = New System.Drawing.Point(5, 19)
+        Me.pnlTheme.Location = New System.Drawing.Point(21, 32)
         Me.pnlTheme.Name = "pnlTheme"
-        Me.pnlTheme.Size = New System.Drawing.Size(131, 147)
+        Me.pnlTheme.Size = New System.Drawing.Size(131, 116)
         Me.pnlTheme.TabIndex = 11
+        '
+        'rbtDragonBall
+        '
+        Me.rbtDragonBall.AutoSize = True
+        Me.rbtDragonBall.Location = New System.Drawing.Point(22, 13)
+        Me.rbtDragonBall.Name = "rbtDragonBall"
+        Me.rbtDragonBall.Size = New System.Drawing.Size(80, 17)
+        Me.rbtDragonBall.TabIndex = 15
+        Me.rbtDragonBall.TabStop = True
+        Me.rbtDragonBall.Text = "Dragon Ball"
+        Me.rbtDragonBall.UseVisualStyleBackColor = True
+        '
+        'rbtSonic
+        '
+        Me.rbtSonic.AutoSize = True
+        Me.rbtSonic.Location = New System.Drawing.Point(22, 82)
+        Me.rbtSonic.Name = "rbtSonic"
+        Me.rbtSonic.Size = New System.Drawing.Size(52, 17)
+        Me.rbtSonic.TabIndex = 15
+        Me.rbtSonic.TabStop = True
+        Me.rbtSonic.Text = "Sonic"
+        Me.rbtSonic.UseVisualStyleBackColor = True
         '
         'pnlThemeSombre
         '
+        Me.pnlThemeSombre.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.pnlThemeSombre.Controls.Add(Me.rbtClair)
-        Me.pnlThemeSombre.Controls.Add(Me.rbtSombre)
+        Me.pnlThemeSombre.Controls.Add(Me.rbtDark)
         Me.pnlThemeSombre.Location = New System.Drawing.Point(200, 32)
         Me.pnlThemeSombre.Name = "pnlThemeSombre"
-        Me.pnlThemeSombre.Size = New System.Drawing.Size(141, 104)
+        Me.pnlThemeSombre.Size = New System.Drawing.Size(141, 116)
         Me.pnlThemeSombre.TabIndex = 12
         '
         'rbtClair
         '
         Me.rbtClair.AutoSize = True
-        Me.rbtClair.Location = New System.Drawing.Point(8, 23)
+        Me.rbtClair.Location = New System.Drawing.Point(8, 22)
         Me.rbtClair.Name = "rbtClair"
-        Me.rbtClair.Size = New System.Drawing.Size(99, 17)
+        Me.rbtClair.Size = New System.Drawing.Size(93, 17)
         Me.rbtClair.TabIndex = 14
         Me.rbtClair.TabStop = True
-        Me.rbtClair.Text = "Principale (clair)"
+        Me.rbtClair.Text = "Principal (clair)"
         Me.rbtClair.UseVisualStyleBackColor = True
         '
-        'rbtSombre
+        'rbtDark
         '
-        Me.rbtSombre.AutoSize = True
-        Me.rbtSombre.Location = New System.Drawing.Point(8, 60)
-        Me.rbtSombre.Name = "rbtSombre"
-        Me.rbtSombre.Size = New System.Drawing.Size(124, 17)
-        Me.rbtSombre.TabIndex = 0
-        Me.rbtSombre.TabStop = True
-        Me.rbtSombre.Text = "Cave (mode Sombre)"
-        Me.rbtSombre.UseVisualStyleBackColor = True
+        Me.rbtDark.AutoSize = True
+        Me.rbtDark.Location = New System.Drawing.Point(8, 61)
+        Me.rbtDark.Name = "rbtDark"
+        Me.rbtDark.Size = New System.Drawing.Size(124, 17)
+        Me.rbtDark.TabIndex = 0
+        Me.rbtDark.TabStop = True
+        Me.rbtDark.Text = "Cave (mode Sombre)"
+        Me.rbtDark.UseVisualStyleBackColor = True
         '
         'grpBoxTheme
         '
         Me.grpBoxTheme.Controls.Add(Me.pnlThemeSombre)
         Me.grpBoxTheme.Controls.Add(Me.pnlTheme)
-        Me.grpBoxTheme.Location = New System.Drawing.Point(29, 112)
+        Me.grpBoxTheme.Location = New System.Drawing.Point(34, 112)
         Me.grpBoxTheme.Name = "grpBoxTheme"
-        Me.grpBoxTheme.Size = New System.Drawing.Size(364, 192)
+        Me.grpBoxTheme.Size = New System.Drawing.Size(364, 176)
         Me.grpBoxTheme.TabIndex = 13
         Me.grpBoxTheme.TabStop = False
         Me.grpBoxTheme.Text = "Thème"
         '
         'pnlSon
         '
+        Me.pnlSon.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.pnlSon.Controls.Add(Me.rbtVolumeOff)
         Me.pnlSon.Controls.Add(Me.rbtVolumeOn)
-        Me.pnlSon.Location = New System.Drawing.Point(566, 246)
+        Me.pnlSon.Location = New System.Drawing.Point(577, 166)
         Me.pnlSon.Name = "pnlSon"
         Me.pnlSon.Size = New System.Drawing.Size(200, 109)
         Me.pnlSon.TabIndex = 14
@@ -186,7 +216,6 @@ Partial Class Options
         Me.rbtVolumeOff.Name = "rbtVolumeOff"
         Me.rbtVolumeOff.Size = New System.Drawing.Size(73, 17)
         Me.rbtVolumeOff.TabIndex = 16
-        Me.rbtVolumeOff.TabStop = True
         Me.rbtVolumeOff.Text = "Désactivé"
         Me.rbtVolumeOff.UseVisualStyleBackColor = True
         '
@@ -197,9 +226,17 @@ Partial Class Options
         Me.rbtVolumeOn.Name = "rbtVolumeOn"
         Me.rbtVolumeOn.Size = New System.Drawing.Size(55, 17)
         Me.rbtVolumeOn.TabIndex = 15
-        Me.rbtVolumeOn.TabStop = True
         Me.rbtVolumeOn.Text = "Activé"
         Me.rbtVolumeOn.UseVisualStyleBackColor = True
+        '
+        'LabelMusic
+        '
+        Me.LabelMusic.AutoSize = True
+        Me.LabelMusic.Location = New System.Drawing.Point(574, 150)
+        Me.LabelMusic.Name = "LabelMusic"
+        Me.LabelMusic.Size = New System.Drawing.Size(92, 13)
+        Me.LabelMusic.TabIndex = 15
+        Me.LabelMusic.Text = "MUSIC EN FOND"
         '
         'Options
         '
@@ -207,6 +244,7 @@ Partial Class Options
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.LabelMusic)
         Me.Controls.Add(Me.pnlSon)
         Me.Controls.Add(Me.grpBoxTheme)
         Me.Controls.Add(Me.Label3)
@@ -239,10 +277,13 @@ Partial Class Options
     Friend WithEvents rbtMario As RadioButton
     Friend WithEvents pnlTheme As Panel
     Friend WithEvents pnlThemeSombre As Panel
-    Friend WithEvents rbtSombre As RadioButton
+    Friend WithEvents rbtDark As RadioButton
     Friend WithEvents rbtClair As RadioButton
     Friend WithEvents grpBoxTheme As GroupBox
     Friend WithEvents pnlSon As Panel
     Friend WithEvents rbtVolumeOff As RadioButton
     Friend WithEvents rbtVolumeOn As RadioButton
+    Friend WithEvents rbtSonic As RadioButton
+    Friend WithEvents rbtDragonBall As RadioButton
+    Friend WithEvents LabelMusic As Label
 End Class

@@ -288,4 +288,8 @@
             MontrerSolution()
         End If
     End Sub
+
+    Private Sub rbtVolume_CheckedChanged(sender As Object, e As EventArgs)
+        ChangerSonEtat()
+    End Sub
 End Class

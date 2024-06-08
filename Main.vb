@@ -11,12 +11,19 @@ Module Main
 
     Private joueurs() As Joueur
     Private nbJoueurs As Integer
-    Const PAS_EXT As Integer = 2
+    Private Const PAS_EXT As Integer = 2
     Public difficulte As Collection
-    Public son As System.Media.SoundPlayer
+
+    Private son As System.Media.SoundPlayer
+    Private SonEnFond As Boolean = False
 
     Public taille_zone As Integer
     Public taille_grille As Integer
+
+    Private Theme As String = "Sonic"
+    Private ThemeSetting As String = "Clair"
+
+
 
     Sub Main()
         nbJoueurs = 0
@@ -27,8 +34,8 @@ Module Main
             {30, "Difficile"}
         }
 
-        ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
-        ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
+        ChangerBackground()
+        LancerMusic()
         ChargerJoueurs()
 
         Options.InitScrollBar()
@@ -106,15 +113,7 @@ Module Main
         Next
     End Sub
 
-    Public Sub ChangerMusique(chemin As String)
-        If son IsNot Nothing Then
-            son.Stop()
-            son.Dispose()
-        End If
-        son = New Media.SoundPlayer(Application.StartupPath & chemin)
-        son.Load()
-        son.PlayLooping()
-    End Sub
+
 
     Public Function GetNbJoueurs() As Integer
         Return nbJoueurs
@@ -139,9 +138,52 @@ Module Main
         Return newJoueur
     End Function
 
-    Public Sub ChangerBackground(chemin As String)
-        Principale.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
-        Jeu.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
-        Classement.BackgroundImage = Image.FromFile(Application.StartupPath & chemin)
+    Public Function getImage() As String
+        Return Theme & ThemeSetting
+    End Function
+
+    Public Function getSon() As String
+        Return Theme & ThemeSetting
+    End Function
+
+    Public Sub ChangerThemeSetting(NewThemeSetting As String)
+        ThemeSetting = NewThemeSetting
+        ChangerBackground()
+        ChangerMusique()
     End Sub
+    Public Sub ChangerTheme(NewTheme As String)
+        Theme = NewTheme
+        ChangerBackground()
+        ChangerMusique()
+    End Sub
+
+    Public Sub ChangerBackground()
+        Dim img As String = getImage()
+
+        Principale.BackgroundImage = Image.FromFile(Application.StartupPath & "\..\..\My Project\Images\" & img & ".png")
+        Jeu.BackgroundImage = Image.FromFile(Application.StartupPath & "\..\..\My Project\Images\" & img & ".png")
+        Classement.BackgroundImage = Image.FromFile(Application.StartupPath & "\..\..\My Project\Images\" & img & ".png")
+    End Sub
+
+
+    Public Sub ChangerSonEtat()
+        SonEnFond = Not SonEnFond
+        ChangerMusique()
+    End Sub
+
+    Public Sub LancerMusic()
+        son = New Media.SoundPlayer(Application.StartupPath & "\..\..\My Project\Sons\" & getSon() & ".wav")
+        son.Load()
+        son.PlayLooping()
+    End Sub
+
+    Public Sub ChangerMusique()
+        If SonEnFond Then
+            LancerMusic()
+        Else
+            son.Stop()
+            son.Dispose()
+        End If
+    End Sub
+
 End Module

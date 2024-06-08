@@ -1,7 +1,6 @@
 ﻿Public Class Principale
     Private Sub Principale_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        son.Load()
-        son.PlayLooping()
+        LancerMusic()
         Init()
         initTextBox()
     End Sub

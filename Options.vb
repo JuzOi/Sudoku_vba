@@ -1,10 +1,19 @@
 ﻿Public Class Options
     Private Sub Options_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitScrollBar()
-        pnlThemeSombre.Visible = False
-        rbtClair.Checked = True
-        rbtMinecraft.Checked = True
-        rbtVolumeOn.Checked = True
+
+        rbtMinecraft.Tag = "Minecraft"
+        rbtMario.Tag = "Mario"
+        rbtSonic.Tag = "Sonic"
+        rbtDragonBall.Tag = "DragonBall"
+
+        rbtDark.Tag = "Dark"
+        rbtClair.Tag = "Clair"
+
+        rbtClair.PerformClick()
+        rbtSonic.PerformClick()
+        rbtVolumeOn.PerformClick()
+
     End Sub
 
     Public Sub InitScrollBar()
@@ -29,77 +38,15 @@
         Principale.Show()
     End Sub
 
-    Private Sub rbtMario_CheckedChanged(sender As Object, e As EventArgs) Handles rbtMario.CheckedChanged
-        ChangerBackground("\..\..\My Project\Images\MarioTheme.jpg")
-        rbtClair.Checked = True
-        pnlThemeSombre.Visible = True
-        If rbtVolumeOn.Checked = True Then
-            ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
-        End If
+    Private Sub rbtTheme_CheckedChanged(sender As Object, e As EventArgs) Handles rbtMinecraft.CheckedChanged, rbtMario.CheckedChanged, rbtSonic.CheckedChanged, rbtDragonBall.CheckedChanged
+        ChangerTheme(sender.Tag)
     End Sub
 
-    Private Sub rbtMinecraft_CheckedChanged(sender As Object, e As EventArgs) Handles rbtMinecraft.CheckedChanged
-        ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
-        rbtClair.Checked = True
-        pnlThemeSombre.Visible = True
-
-        If rbtVolumeOn.Checked = True Then
-            ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
-        End If
+    Private Sub rbtThemeSetting_CheckedChanged(sender As Object, e As EventArgs) Handles rbtDark.CheckedChanged, rbtClair.CheckedChanged
+        ChangerThemeSetting(sender.Tag)
     End Sub
 
-    Private Sub rbtClair_CheckedChanged(sender As Object, e As EventArgs) Handles rbtClair.CheckedChanged
-        If rbtMario.Checked = True Then
-            ChangerBackground("\..\..\My Project\Images\MarioTheme.jpg")
-        Else
-            ChangerBackground("\..\..\My Project\Images\MinecraftTheme.png")
-        End If
-
-        If rbtVolumeOn.Checked = True Then
-            If rbtMario.Checked = True Then
-                ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
-            Else
-                ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
-            End If
-        End If
-
-    End Sub
-
-    Private Sub rbtSombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbtSombre.CheckedChanged
-        If rbtMario.Checked = True Then
-            ChangerBackground("\..\..\My Project\Images\MarioDark - Copie.png")
-        Else
-            ChangerBackground("\..\..\My Project\Images\MinecraftDark.png")
-        End If
-
-        If rbtVolumeOn.Checked = True Then
-            If rbtMario.Checked = True Then
-                ChangerMusique("\..\..\My Project\Sons\MarioDarkSong.wav")
-            Else
-                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
-            End If
-        End If
-    End Sub
-
-    Private Sub rbtVolumeOff_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOff.CheckedChanged
-        son.Stop()
-    End Sub
-
-    Private Sub rbtVolumeOn_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOn.CheckedChanged
-        If rbtMinecraft.Checked = True Then
-            If rbtClair.Checked = True Then
-                ChangerMusique("\..\..\My Project\Sons\MinecraftThemeSong.wav")
-            Else
-                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
-            End If
-        Else
-            If rbtClair.Checked = True Then
-                ChangerMusique("\..\..\My Project\Sons\SuperMarioBrosThemeSong.wav")
-            Else
-                ChangerMusique("\..\..\My Project\Sons\MinecraftDarkSong.wav")
-            End If
-        End If
-
-
+    Private Sub rbtVolume_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOn.CheckedChanged
+        ChangerSonEtat()
     End Sub
 End Class
