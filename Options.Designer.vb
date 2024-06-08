@@ -49,43 +49,47 @@ Partial Class Options
         '
         'scrollTime
         '
-        Me.scrollTime.Location = New System.Drawing.Point(15, 35)
+        Me.scrollTime.Location = New System.Drawing.Point(20, 43)
         Me.scrollTime.Name = "scrollTime"
-        Me.scrollTime.Size = New System.Drawing.Size(481, 30)
+        Me.scrollTime.Size = New System.Drawing.Size(641, 30)
         Me.scrollTime.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 13)
+        Me.Label1.Location = New System.Drawing.Point(16, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.Size = New System.Drawing.Size(38, 16)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "00:00"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(462, 13)
+        Me.Label2.Location = New System.Drawing.Point(616, 16)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(34, 13)
+        Me.Label2.Size = New System.Drawing.Size(38, 16)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "60:00"
         '
         'lblTimeActuel
         '
         Me.lblTimeActuel.AutoSize = True
-        Me.lblTimeActuel.Location = New System.Drawing.Point(657, 35)
+        Me.lblTimeActuel.Location = New System.Drawing.Point(876, 43)
+        Me.lblTimeActuel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTimeActuel.Name = "lblTimeActuel"
-        Me.lblTimeActuel.Size = New System.Drawing.Size(0, 13)
+        Me.lblTimeActuel.Size = New System.Drawing.Size(0, 16)
         Me.lblTimeActuel.TabIndex = 3
         '
         'btnRetour
         '
         Me.btnRetour.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRetour.Location = New System.Drawing.Point(34, 368)
+        Me.btnRetour.Location = New System.Drawing.Point(45, 453)
+        Me.btnRetour.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnRetour.Name = "btnRetour"
-        Me.btnRetour.Size = New System.Drawing.Size(75, 55)
+        Me.btnRetour.Size = New System.Drawing.Size(100, 68)
         Me.btnRetour.TabIndex = 7
         Me.btnRetour.Text = "←"
         Me.btnRetour.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -94,18 +98,20 @@ Partial Class Options
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(574, 35)
+        Me.Label3.Location = New System.Drawing.Point(765, 43)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.Size = New System.Drawing.Size(95, 16)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Temps actuel :"
         '
         'rbtMinecraft
         '
         Me.rbtMinecraft.AutoSize = True
-        Me.rbtMinecraft.Location = New System.Drawing.Point(22, 59)
+        Me.rbtMinecraft.Location = New System.Drawing.Point(29, 73)
+        Me.rbtMinecraft.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtMinecraft.Name = "rbtMinecraft"
-        Me.rbtMinecraft.Size = New System.Drawing.Size(69, 17)
+        Me.rbtMinecraft.Size = New System.Drawing.Size(82, 20)
         Me.rbtMinecraft.TabIndex = 9
         Me.rbtMinecraft.TabStop = True
         Me.rbtMinecraft.Text = "Minecraft"
@@ -114,9 +120,10 @@ Partial Class Options
         'rbtMario
         '
         Me.rbtMario.AutoSize = True
-        Me.rbtMario.Location = New System.Drawing.Point(22, 36)
+        Me.rbtMario.Location = New System.Drawing.Point(29, 44)
+        Me.rbtMario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtMario.Name = "rbtMario"
-        Me.rbtMario.Size = New System.Drawing.Size(51, 17)
+        Me.rbtMario.Size = New System.Drawing.Size(62, 20)
         Me.rbtMario.TabIndex = 10
         Me.rbtMario.TabStop = True
         Me.rbtMario.Text = "Mario"
@@ -129,17 +136,19 @@ Partial Class Options
         Me.pnlTheme.Controls.Add(Me.rbtSonic)
         Me.pnlTheme.Controls.Add(Me.rbtMinecraft)
         Me.pnlTheme.Controls.Add(Me.rbtMario)
-        Me.pnlTheme.Location = New System.Drawing.Point(21, 32)
+        Me.pnlTheme.Location = New System.Drawing.Point(28, 39)
+        Me.pnlTheme.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlTheme.Name = "pnlTheme"
-        Me.pnlTheme.Size = New System.Drawing.Size(131, 116)
+        Me.pnlTheme.Size = New System.Drawing.Size(175, 143)
         Me.pnlTheme.TabIndex = 11
         '
         'rbtDragonBall
         '
         Me.rbtDragonBall.AutoSize = True
-        Me.rbtDragonBall.Location = New System.Drawing.Point(22, 13)
+        Me.rbtDragonBall.Location = New System.Drawing.Point(29, 16)
+        Me.rbtDragonBall.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtDragonBall.Name = "rbtDragonBall"
-        Me.rbtDragonBall.Size = New System.Drawing.Size(80, 17)
+        Me.rbtDragonBall.Size = New System.Drawing.Size(99, 20)
         Me.rbtDragonBall.TabIndex = 15
         Me.rbtDragonBall.TabStop = True
         Me.rbtDragonBall.Text = "Dragon Ball"
@@ -148,9 +157,10 @@ Partial Class Options
         'rbtSonic
         '
         Me.rbtSonic.AutoSize = True
-        Me.rbtSonic.Location = New System.Drawing.Point(22, 82)
+        Me.rbtSonic.Location = New System.Drawing.Point(29, 101)
+        Me.rbtSonic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtSonic.Name = "rbtSonic"
-        Me.rbtSonic.Size = New System.Drawing.Size(52, 17)
+        Me.rbtSonic.Size = New System.Drawing.Size(62, 20)
         Me.rbtSonic.TabIndex = 15
         Me.rbtSonic.TabStop = True
         Me.rbtSonic.Text = "Sonic"
@@ -161,17 +171,19 @@ Partial Class Options
         Me.pnlThemeSombre.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.pnlThemeSombre.Controls.Add(Me.rbtClair)
         Me.pnlThemeSombre.Controls.Add(Me.rbtDark)
-        Me.pnlThemeSombre.Location = New System.Drawing.Point(200, 32)
+        Me.pnlThemeSombre.Location = New System.Drawing.Point(267, 39)
+        Me.pnlThemeSombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlThemeSombre.Name = "pnlThemeSombre"
-        Me.pnlThemeSombre.Size = New System.Drawing.Size(141, 116)
+        Me.pnlThemeSombre.Size = New System.Drawing.Size(188, 143)
         Me.pnlThemeSombre.TabIndex = 12
         '
         'rbtClair
         '
         Me.rbtClair.AutoSize = True
-        Me.rbtClair.Location = New System.Drawing.Point(8, 22)
+        Me.rbtClair.Location = New System.Drawing.Point(11, 27)
+        Me.rbtClair.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtClair.Name = "rbtClair"
-        Me.rbtClair.Size = New System.Drawing.Size(93, 17)
+        Me.rbtClair.Size = New System.Drawing.Size(116, 20)
         Me.rbtClair.TabIndex = 14
         Me.rbtClair.TabStop = True
         Me.rbtClair.Text = "Principal (clair)"
@@ -180,9 +192,10 @@ Partial Class Options
         'rbtDark
         '
         Me.rbtDark.AutoSize = True
-        Me.rbtDark.Location = New System.Drawing.Point(8, 61)
+        Me.rbtDark.Location = New System.Drawing.Point(11, 75)
+        Me.rbtDark.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtDark.Name = "rbtDark"
-        Me.rbtDark.Size = New System.Drawing.Size(124, 17)
+        Me.rbtDark.Size = New System.Drawing.Size(157, 20)
         Me.rbtDark.TabIndex = 0
         Me.rbtDark.TabStop = True
         Me.rbtDark.Text = "Cave (mode Sombre)"
@@ -192,9 +205,11 @@ Partial Class Options
         '
         Me.grpBoxTheme.Controls.Add(Me.pnlThemeSombre)
         Me.grpBoxTheme.Controls.Add(Me.pnlTheme)
-        Me.grpBoxTheme.Location = New System.Drawing.Point(34, 112)
+        Me.grpBoxTheme.Location = New System.Drawing.Point(45, 138)
+        Me.grpBoxTheme.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpBoxTheme.Name = "grpBoxTheme"
-        Me.grpBoxTheme.Size = New System.Drawing.Size(364, 176)
+        Me.grpBoxTheme.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpBoxTheme.Size = New System.Drawing.Size(485, 217)
         Me.grpBoxTheme.TabIndex = 13
         Me.grpBoxTheme.TabStop = False
         Me.grpBoxTheme.Text = "Thème"
@@ -204,17 +219,19 @@ Partial Class Options
         Me.pnlSon.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.pnlSon.Controls.Add(Me.rbtVolumeOff)
         Me.pnlSon.Controls.Add(Me.rbtVolumeOn)
-        Me.pnlSon.Location = New System.Drawing.Point(577, 166)
+        Me.pnlSon.Location = New System.Drawing.Point(769, 204)
+        Me.pnlSon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlSon.Name = "pnlSon"
-        Me.pnlSon.Size = New System.Drawing.Size(200, 109)
+        Me.pnlSon.Size = New System.Drawing.Size(267, 134)
         Me.pnlSon.TabIndex = 14
         '
         'rbtVolumeOff
         '
         Me.rbtVolumeOff.AutoSize = True
-        Me.rbtVolumeOff.Location = New System.Drawing.Point(50, 64)
+        Me.rbtVolumeOff.Location = New System.Drawing.Point(67, 79)
+        Me.rbtVolumeOff.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtVolumeOff.Name = "rbtVolumeOff"
-        Me.rbtVolumeOff.Size = New System.Drawing.Size(73, 17)
+        Me.rbtVolumeOff.Size = New System.Drawing.Size(89, 20)
         Me.rbtVolumeOff.TabIndex = 16
         Me.rbtVolumeOff.Text = "Désactivé"
         Me.rbtVolumeOff.UseVisualStyleBackColor = True
@@ -222,9 +239,10 @@ Partial Class Options
         'rbtVolumeOn
         '
         Me.rbtVolumeOn.AutoSize = True
-        Me.rbtVolumeOn.Location = New System.Drawing.Point(50, 25)
+        Me.rbtVolumeOn.Location = New System.Drawing.Point(67, 31)
+        Me.rbtVolumeOn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.rbtVolumeOn.Name = "rbtVolumeOn"
-        Me.rbtVolumeOn.Size = New System.Drawing.Size(55, 17)
+        Me.rbtVolumeOn.Size = New System.Drawing.Size(65, 20)
         Me.rbtVolumeOn.TabIndex = 15
         Me.rbtVolumeOn.Text = "Activé"
         Me.rbtVolumeOn.UseVisualStyleBackColor = True
@@ -232,18 +250,19 @@ Partial Class Options
         'LabelMusic
         '
         Me.LabelMusic.AutoSize = True
-        Me.LabelMusic.Location = New System.Drawing.Point(574, 150)
+        Me.LabelMusic.Location = New System.Drawing.Point(765, 185)
+        Me.LabelMusic.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabelMusic.Name = "LabelMusic"
-        Me.LabelMusic.Size = New System.Drawing.Size(92, 13)
+        Me.LabelMusic.Size = New System.Drawing.Size(112, 16)
         Me.LabelMusic.TabIndex = 15
         Me.LabelMusic.Text = "MUSIC EN FOND"
         '
         'Options
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.LabelMusic)
         Me.Controls.Add(Me.pnlSon)
         Me.Controls.Add(Me.grpBoxTheme)
@@ -253,6 +272,7 @@ Partial Class Options
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.scrollTime)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Options"
         Me.Text = "Options"
         Me.pnlTheme.ResumeLayout(False)

@@ -15,7 +15,7 @@ Module Main
     Public difficulte As Collection
 
     Private son As System.Media.SoundPlayer
-    Private SonEnFond As Boolean = False
+    Private SonEnFond As Boolean = True
 
     Public taille_zone As Integer
     Public taille_grille As Integer
@@ -166,8 +166,13 @@ Module Main
     End Sub
 
 
-    Public Sub ChangerSonEtat()
-        SonEnFond = Not SonEnFond
+    Public Sub AllumerSon()
+        SonEnFond = True
+        ChangerMusique()
+    End Sub
+
+    Public Sub CouperSon()
+        SonEnFond = False
         ChangerMusique()
     End Sub
 
@@ -185,5 +190,9 @@ Module Main
             son.Dispose()
         End If
     End Sub
+
+    Public Function GetSonEnFond()
+        Return SonEnFond
+    End Function
 
 End Module
