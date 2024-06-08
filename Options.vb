@@ -12,7 +12,13 @@
 
         rbtClair.PerformClick()
         rbtSonic.PerformClick()
-        rbtVolumeOn.PerformClick()
+
+        If GetSonEnFond() Then
+            rbtVolumeOn.PerformClick()
+        Else
+            rbtVolumeOff.PerformClick()
+        End If
+
 
     End Sub
 
@@ -46,7 +52,11 @@
         ChangerThemeSetting(sender.Tag)
     End Sub
 
-    Private Sub rbtVolume_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOn.CheckedChanged
-        ChangerSonEtat()
+    Private Sub rbtVolumeOn_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOn.CheckedChanged
+        AllumerSon()
+    End Sub
+
+    Private Sub rbtVolumeOff_CheckedChanged(sender As Object, e As EventArgs) Handles rbtVolumeOff.CheckedChanged
+        CouperSon()
     End Sub
 End Class
